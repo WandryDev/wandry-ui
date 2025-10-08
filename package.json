@@ -1,8 +1,9 @@
 {
   "name": "@wandry/wandry-ui",
-  "private": true,
-  "version": "0.0.0",
+  "description": "Production-ready React UI component based Align UI",
+  "version": "0.0.1",
   "type": "module",
+  "private": true,
   "exports": {
     ".": {
       "import": "./dist/@wandry/wandry-ui.js",
