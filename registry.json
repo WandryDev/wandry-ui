@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "@wandry/ui",
+  "homepage": "https://wandry.com.ua",
   "items": [
     {
       "name": "text-field",
@@ -9,7 +9,7 @@
       "title": "TextField",
       "description": "Controlled text input component with label and error message support.",
       "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["button", "input", "label", "textarea", "card"],
+      "registryDependencies": ["input-group", "field"],
       "files": [
         {
           "path": "registry/wandry-ui/text-field.tsx",

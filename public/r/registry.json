@@ -1,18 +1,39 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "@wandry/ui",
+  "homepage": "https://wandry.com.ua",
   "items": [
     {
       "name": "text-field",
       "type": "registry:component",
       "title": "TextField",
       "description": "Controlled text input component with label and error message support.",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["button", "input", "label", "textarea", "card"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "input-group",
+        "field"
+      ],
       "files": [
         {
-          "path": "registry/wandry-ui/ui/text-field.tsx",
+          "path": "registry/wandry-ui/text-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "test-component",
+      "title": "Wandry UI Component",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "/Users/dev_wandry/projects/opensource/wandry-ui/registry/wandry-ui/test-component.tsx",
           "type": "registry:component"
         }
       ]

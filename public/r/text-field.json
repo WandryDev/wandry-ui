@@ -8,16 +8,13 @@
     "@wandry/inertia-form"
   ],
   "registryDependencies": [
-    "button",
-    "input",
-    "label",
-    "textarea",
-    "card"
+    "input-group",
+    "field"
   ],
   "files": [
     {
-      "path": "registry/wandry-ui/ui/text-field.tsx",
-      "content": "const TextField: React.FC = () => {\n  return <div>TextField Component</div>;\n};\n\nexport default TextField;\n",
+      "path": "registry/wandry-ui/text-field.tsx",
+      "content": "\"use client\";\n\nimport { useField } from \"@wandry/inertia-form\";\n\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupInput,\n} from \"@/components/ui/input-group\";\n\ntype InputProps = Omit<React.ComponentProps<\"input\">, \"name\">;\n\ntype TextFieldProps = InputProps & {\n  name: string;\n  description?: string;\n  label?: string;\n  addonLeft?: React.ReactNode;\n  addonRight?: React.ReactNode;\n};\n\nconst TextField: React.FC<TextFieldProps> = ({\n  name,\n  label,\n  description,\n  addonLeft,\n  addonRight,\n  defaultValue = \"\",\n  ...inputProps\n}) => {\n  const field = useField(name, { defaultValue });\n\n  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {\n    const value = e.target.value;\n    field.onChange(value);\n  };\n\n  return (\n    <Field>\n      <FieldLabel htmlFor={name}>{label}</FieldLabel>\n      <InputGroup>\n        <InputGroupInput\n          id={name}\n          name={name}\n          value={field.value}\n          onChange={onChange}\n          {...inputProps}\n        />\n        {addonLeft && <InputGroupAddon>{addonLeft}</InputGroupAddon>}\n        {addonRight && (\n          <InputGroupAddon align=\"inline-end\">{addonRight}</InputGroupAddon>\n        )}\n      </InputGroup>\n      <FieldDescription>{description}</FieldDescription>\n      <FieldError>{field.error}</FieldError>\n    </Field>\n  );\n};\n\nexport default TextField;\n",
       "type": "registry:component"
     }
   ]

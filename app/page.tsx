@@ -1,5 +1,8 @@
 import * as React from "react";
 
+import { CreditCard, User } from "lucide-react";
+import { Form } from "@wandry/inertia-form";
+
 import TextField from "@/registry/wandry-ui/text-field";
 
 export default function Home() {
@@ -11,16 +14,23 @@ export default function Home() {
           A custom registry for distributing code using shadcn.
         </p>
       </header>
-      <main className="flex flex-col flex-1 gap-8">
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A simple hello world component
-            </h2>
-          </div>
-          <div className="flex items-center justify-center min-h-[400px] relative">
-            <TextField />
-          </div>
+      <main className="flex flex-col flex-1 gap-4">
+        <h2 className="text-2xl font-medium pb-2 border-b">Text Field</h2>
+        <div className="flex justify-center relative ">
+          <Form action="#" className="w-full space-y-2">
+            <TextField
+              name="first_name"
+              label="First Name"
+              addonLeft={<User />}
+            />
+            <TextField
+              name="card"
+              label="Card Number"
+              placeholder="1234 5678 9101 1213"
+              description="Enter your 16-digit card number"
+              addonLeft={<CreditCard />}
+            />
+          </Form>
         </div>
       </main>
     </div>
