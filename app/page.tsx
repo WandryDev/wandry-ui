@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import TextField from "@/registry/wandry-ui/ui/text-field";
+import TextField from "@/registry/wandry-ui/text-field";
 
 export default function Home() {
   return (

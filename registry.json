@@ -12,7 +12,7 @@
       "registryDependencies": ["button", "input", "label", "textarea", "card"],
       "files": [
         {
-          "path": "registry/wandry-ui/ui/text-field.tsx",
+          "path": "registry/wandry-ui/text-field.tsx",
           "type": "registry:component"
         }
       ]
