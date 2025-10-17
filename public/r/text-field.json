@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-field",
+  "type": "registry:component",
+  "title": "TextField",
+  "description": "Controlled text input component with label and error message support.",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "textarea",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/ui/text-field.tsx",
+      "content": "const TextField: React.FC = () => {\n  return <div>TextField Component</div>;\n};\n\nexport default TextField;\n",
+      "type": "registry:component"
+    }
+  ]
+}
