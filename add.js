@@ -123,11 +123,12 @@ try {
         .join("");
 
       const componentPropsName = `${componentFNName}Props`;
-      const componentTemplate = `import * as React from "react";
+      const componentTemplate = `"use client";
+import * as React from "react";
 
-export type ${componentPropsName} {}
+export type ${componentPropsName} = {}
 
-const ${componentFNName}: React.FC<${componentPropsName}>(props) {
+const ${componentFNName}: React.FC<${componentPropsName}> = (props) => {
   return ();
 }
 

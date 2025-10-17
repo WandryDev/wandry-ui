@@ -23,17 +23,19 @@
       ]
     },
     {
-      "name": "test-component",
-      "title": "Wandry UI Component",
+      "name": "select-field",
+      "title": "Select Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
       "dependencies": [
         "@wandry/inertia-form"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "select"
+      ],
       "files": [
         {
-          "path": "/Users/dev_wandry/projects/opensource/wandry-ui/registry/wandry-ui/test-component.tsx",
+          "path": "registry/wandry-ui/select-field.tsx",
           "type": "registry:component"
         }
       ]
