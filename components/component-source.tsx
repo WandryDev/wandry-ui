@@ -104,7 +104,10 @@ function ComponentCode({
         </figcaption>
       )}
       <CopyButton value={code} />
-      <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+      <div
+        dangerouslySetInnerHTML={{ __html: highlightedCode }}
+        className="not-prose"
+      />
     </figure>
   );
 }

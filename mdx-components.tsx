@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { ComponentInstallation } from "@/components/component-installation";
 import { ComponentPreview } from "@/components/component-preview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CodeBlockCommand } from "@/components/code-block-commander";
 
 import * as WandryUI from "@/registry/wandry-ui";
 import * as WandryUIForm from "@wandry/inertia-form";
@@ -162,7 +163,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       return (
         <pre
           className={cn(
-            "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0",
+            "no-scrollbar not-prose min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0",
             className
           )}
           {...props}
@@ -171,10 +172,57 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         </pre>
       );
     },
+    table: ({
+      className,
+      ...props
+    }: React.HTMLAttributes<HTMLTableElement>) => (
+      <div className="my-6 w-full overflow-y-auto">
+        <table
+          className={cn(
+            "relative w-full overflow-hidden border-none text-sm",
+            className
+          )}
+          {...props}
+        />
+      </div>
+    ),
+    tr: ({
+      className,
+      ...props
+    }: React.HTMLAttributes<HTMLTableRowElement>) => (
+      <tr
+        className={cn("last:border-b-none m-0 border-b", className)}
+        {...props}
+      />
+    ),
+    th: ({
+      className,
+      ...props
+    }: React.HTMLAttributes<HTMLTableCellElement>) => (
+      <th
+        className={cn(
+          "px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
+          className
+        )}
+        {...props}
+      />
+    ),
+    td: ({
+      className,
+      ...props
+    }: React.HTMLAttributes<HTMLTableCellElement>) => (
+      <td
+        className={cn(
+          "px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+          className
+        )}
+        {...props}
+      />
+    ),
     AutoTypeTable: (props) => (
       <AutoTypeTable {...props} generator={generator} />
     ),
-
+    CodeBlockCommand,
     ComponentPreview,
     ComponentInstallation,
     Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => {

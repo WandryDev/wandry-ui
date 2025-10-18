@@ -6,7 +6,7 @@ import { TextField } from "../wandry-ui";
 
 export default function TextFieldDemo() {
   return (
-    <Form action="#" className="w-full space-y-2">
+    <Form action="#" className="w-[50%] space-y-2">
       <TextField
         name="card"
         label="Card Number"
