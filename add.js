@@ -160,7 +160,7 @@ export default ${componentFNName};
   const registryDeps = registryDependencies.split(" ") ?? [];
 
   for (const dep of registryDeps) {
-    const depPath = path.join(registryDepsPath, dep, ".tsx");
+    const depPath = path.join(registryDepsPath, `${dep}.tsx`);
     if (!fs.existsSync(depPath)) {
       console.log(
         `Registry dependency ${dep} does not exist at path ${depPath}`

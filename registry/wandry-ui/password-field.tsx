@@ -1,6 +1,7 @@
 "use client";
-
+import * as React from "react";
 import { useField } from "@wandry/inertia-form";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 import {
   Field,
@@ -11,29 +12,28 @@ import {
 import {
   InputGroup,
   InputGroupAddon,
+  InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
 
-type InputProps = Omit<React.ComponentProps<"input">, "name">;
+export type InputProps = Omit<React.ComponentProps<"input">, "type">;
 
-export type TextFieldProps = {
+export type PasswordFieldProps = InputProps & {
   name: string;
-  description?: string;
   label?: string;
-  addonLeft?: React.ReactNode;
-  addonRight?: React.ReactNode;
+  description?: string;
+  placeholder?: string;
 };
 
-const TextField: React.FC<TextFieldProps & InputProps> = ({
+const PasswordField: React.FC<PasswordFieldProps> = ({
   name,
   label,
   description,
-  addonLeft,
-  addonRight,
-  defaultValue = "",
+  placeholder,
   ...inputProps
 }) => {
-  const field = useField(name, { defaultValue });
+  const [visible, setVisible] = React.useState(false);
+  const field = useField(name, { defaultValue: "" });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -49,12 +49,20 @@ const TextField: React.FC<TextFieldProps & InputProps> = ({
           name={name}
           value={field.value}
           onChange={onChange}
+          type={visible ? "text" : "password"}
           {...inputProps}
         />
-        {addonLeft && <InputGroupAddon>{addonLeft}</InputGroupAddon>}
-        {addonRight && (
-          <InputGroupAddon align="inline-end">{addonRight}</InputGroupAddon>
-        )}
+
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton
+            aria-label="Toggle visibility"
+            onClick={() => setVisible(!visible)}
+            size="icon-xs"
+            variant="ghost"
+          >
+            {visible ? <EyeOffIcon /> : <EyeIcon />}
+          </InputGroupButton>
+        </InputGroupAddon>
       </InputGroup>
       <FieldDescription>{description}</FieldDescription>
       <FieldError>{field.error}</FieldError>
@@ -62,4 +70,4 @@ const TextField: React.FC<TextFieldProps & InputProps> = ({
   );
 };
 
-export default TextField;
+export default PasswordField;
