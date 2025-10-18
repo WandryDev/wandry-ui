@@ -1,2 +1,2 @@
-// global.d.ts
+// globals.d.ts
 declare module "*.css";

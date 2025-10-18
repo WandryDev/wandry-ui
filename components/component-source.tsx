@@ -2,23 +2,27 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import * as React from "react";
 
-import * as Base from "fumadocs-ui/components/codeblock";
-import { highlight } from "fumadocs-core/highlight";
+import { highlightCode } from "@/lib/highligh-code";
 import { getRegistryItem } from "@/lib/registry";
 import { cn } from "@/lib/utils";
+
+import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
 import { CopyButton } from "@/components/copy-button";
+import { getIconForLanguageExtension } from "@/components/icons";
 
 export async function ComponentSource({
   name,
   src,
   title,
   language,
+  collapsible = false,
   className,
 }: React.ComponentProps<"div"> & {
   name?: string;
   src?: string;
   title?: string;
   language?: string;
+  collapsible?: boolean;
 }) {
   if (!name && !src) {
     return null;
@@ -49,22 +53,30 @@ export async function ComponentSource({
   code = code.replaceAll("/* eslint-disable react/no-children-prop */\n", "");
 
   const lang = language ?? title?.split(".").pop() ?? "tsx";
-  const highlightedCode = await highlight(code, {
-    lang,
-    components: {
-      pre: (props) => <Base.Pre {...props} />,
-    },
-  });
+  const highlightedCode = await highlightCode(code, lang);
+
+  if (!collapsible) {
+    return (
+      <div className={cn("relative", className)}>
+        <ComponentCode
+          code={code}
+          highlightedCode={highlightedCode}
+          language={lang}
+          title={title}
+        />
+      </div>
+    );
+  }
 
   return (
-    <div className={cn("relative", className)}>
+    <CodeCollapsibleWrapper className={className}>
       <ComponentCode
         code={code}
         highlightedCode={highlightedCode}
         language={lang}
         title={title}
       />
-    </div>
+    </CodeCollapsibleWrapper>
   );
 }
 
@@ -75,14 +87,24 @@ function ComponentCode({
   title,
 }: {
   code: string;
-  highlightedCode: React.ReactNode;
+  highlightedCode: string;
   language: string;
   title: string | undefined;
 }) {
   return (
     <figure data-rehype-pretty-code-figure="" className="[&>pre]:max-h-96">
+      {title && (
+        <figcaption
+          data-rehype-pretty-code-title=""
+          className="text-code-foreground [&_svg]:text-code-foreground flex items-center gap-2 [&_svg]:size-4 [&_svg]:opacity-70"
+          data-language={language}
+        >
+          {getIconForLanguageExtension(language)}
+          {title}
+        </figcaption>
+      )}
       <CopyButton value={code} />
-      {highlightedCode}
+      <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
     </figure>
   );
 }

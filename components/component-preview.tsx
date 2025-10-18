@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ComponentPreviewTabs } from "@/components/component-preview-tabs";
 import { ComponentSource } from "@/components/component-source";
 import { Index } from "@/registry/__index__";
-import { Form } from "@wandry/inertia-form";
 
 export function ComponentPreview({
   name,
@@ -63,10 +62,8 @@ export function ComponentPreview({
     <ComponentPreviewTabs
       className={className}
       align={align}
-      hideCode={hideCode}
       component={<Component />}
       source={<ComponentSource name={name} />}
-      chromeLessOnMobile={chromeLessOnMobile}
       {...props}
     />
   );
