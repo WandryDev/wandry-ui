@@ -25,14 +25,10 @@ const TOP_LEVEL_SECTIONS = [
   },
 ];
 
-const EXCLUDED_FOLDERS = ["Getting Started", "Installation"];
-
 export function DocsSidebar({
   tree,
   ...props
 }: React.ComponentProps<typeof Sidebar> & { tree: typeof source.pageTree }) {
-  console.log("tree", tree);
-
   const pathname = usePathname();
 
   return (

@@ -9,8 +9,6 @@ export function ComponentPreview({
   type,
   className,
   align = "center",
-  hideCode = false,
-  chromeLessOnMobile = false,
   ...props
 }: React.ComponentProps<"div"> & {
   name: string;

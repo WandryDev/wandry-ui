@@ -72,7 +72,6 @@ const AsyncAutocompleteField: React.FC<AsyncAutocompleteFieldProps> = ({
     }
     setIsSearching(true);
     const options = await loadOptions(query);
-    console.log("options", options);
 
     setIsSearching(false);
     setResults(options);
