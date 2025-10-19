@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 
-import { createComponentDoc } from "./add-component-doc.mjs";
-import { addComponentDemo } from "./utils/add-component-demo.mjs";
+import fs from "fs";
+import path from "path";
 
+import { createComponentDoc } from "./add-component-doc.mjs";
+import { addComponentDemo } from "./add-component-demo.mjs";
+
+const registryPath = path.resolve("./", "registry.json");
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf-8"));
 
 const components = [

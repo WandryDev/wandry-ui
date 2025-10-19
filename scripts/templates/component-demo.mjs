@@ -15,7 +15,9 @@ import { ${componentFNName} } from "../wandry-ui";
 export type ${componentDemoPropsName} = {}
 
 const ${componentDemoFNName}: React.FC<${componentDemoPropsName}> = (props) => {
-  return ();
+  return <Form>
+    ...
+  </Form>;
 }
 
 export default ${componentDemoFNName};

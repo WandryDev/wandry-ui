@@ -1,4 +1,3 @@
-import fs from "fs";
 import path from "path";
 
 import { getDocComponentTemplate } from "./templates/doc-component.mjs";
