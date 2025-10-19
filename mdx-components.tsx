@@ -9,6 +9,7 @@ import { ComponentInstallation } from "@/components/component-installation";
 import { ComponentPreview } from "@/components/component-preview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CodeBlockCommand } from "@/components/code-block-commander";
+import { ComponentsGrid } from "./components/components-grid";
 
 import * as WandryUI from "@/registry/wandry-ui";
 import * as WandryUIForm from "@wandry/inertia-form";
@@ -269,6 +270,22 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Tab: ({ className, ...props }: React.ComponentProps<"div">) => (
       <div className={cn(className)} {...props} />
     ),
+    Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
+      <h3
+        className={cn(
+          "font-heading mt-8 scroll-m-32 text-xl font-medium tracking-tight",
+          className
+        )}
+        {...props}
+      />
+    ),
+    Steps: ({ ...props }) => (
+      <div
+        className="[&>h3]:step steps mb-12 [counter-reset:step] *:[h3]:first:!mt-0"
+        {...props}
+      />
+    ),
+    ComponentsGrid,
     ...WandryUI,
     ...WandryUIForm,
     ...components,

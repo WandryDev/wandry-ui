@@ -19,7 +19,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 
   return (
     <DocsPage>
-      <div className="flex flex-1 flex-col gap-y-2">
+      <div className="flex  flex-col gap-y-2">
         <DocsTitle>{page.data.title}</DocsTitle>
         <DocsDescription>{page.data.description}</DocsDescription>
       </div>

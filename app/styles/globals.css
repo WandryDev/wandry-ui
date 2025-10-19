@@ -100,6 +100,7 @@
   --code-number: oklch(0.56 0 0);
   --selection: oklch(0.145 0 0);
   --selection-foreground: oklch(1 0 0);
+  --color-fd-background: #fff;
 }
 
 .dark {

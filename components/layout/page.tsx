@@ -1,12 +1,13 @@
 "use client";
 
 import { type ComponentProps, type ReactNode, useMemo } from "react";
+import { MoveLeft, MoveRight } from "lucide-react";
 
-import { cn } from "../../lib/cn";
 import { useTreeContext } from "fumadocs-ui/contexts/tree";
 import { Link, usePathname } from "fumadocs-core/framework";
 import type * as PageTree from "fumadocs-core/page-tree";
-import { ArrowLeft, MoveLeft, MoveRight } from "lucide-react";
+
+import { cn } from "../../lib/cn";
 
 export interface DocsPageProps {
   children: ReactNode;
@@ -14,8 +15,8 @@ export interface DocsPageProps {
 
 export function DocsPage(props: DocsPageProps) {
   return (
-    <main className="flex w-full min-w-0 flex-col pt-10">
-      <article className="flex flex-1 flex-col w-full max-w-[60vw] gap-6 px-4 py-8 md:px-6 ">
+    <main className="flex w-full h-full min-w-0 flex-col pt-10">
+      <article className="flex flex-1 flex-col w-full max-w-[50vw] gap-6 px-4 py-8 md:px-6">
         {props.children}
         <Footer />
       </article>
@@ -25,7 +26,7 @@ export function DocsPage(props: DocsPageProps) {
 
 export function DocsBody(props: ComponentProps<"div">) {
   return (
-    <div {...props} className={cn("prose", props.className)}>
+    <div {...props} className={cn("h-full", props.className)}>
       {props.children}
     </div>
   );
@@ -39,7 +40,7 @@ export function DocsDescription(props: ComponentProps<"p">) {
     <p
       {...props}
       className={cn(
-        "text-muted-foreground text-sm font-normal text-balance sm:text-base pl-2",
+        "text-muted-foreground text-sm font-normal text-balance sm:text-base ",
         props.className
       )}
     >
@@ -105,7 +106,9 @@ function Footer() {
             </p>
           </div>
         </Link>
-      ) : null}
+      ) : (
+        <div></div>
+      )}
 
       {next ? (
         <Link href={next.url}>
@@ -118,7 +121,9 @@ function Footer() {
             </p>
           </div>
         </Link>
-      ) : null}
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }

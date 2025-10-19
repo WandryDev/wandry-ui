@@ -18,16 +18,21 @@ import {
 
 const TOP_LEVEL_SECTIONS = [
   { name: "Get Started", href: "/docs" },
+  { name: "Installation", href: "/docs/installation" },
   {
     name: "Components",
     href: "/docs/components",
   },
 ];
 
+const EXCLUDED_FOLDERS = ["Getting Started", "Installation"];
+
 export function DocsSidebar({
   tree,
   ...props
 }: React.ComponentProps<typeof Sidebar> & { tree: typeof source.pageTree }) {
+  console.log("tree", tree);
+
   const pathname = usePathname();
 
   return (
@@ -88,39 +93,41 @@ export function DocsSidebar({
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        {tree.children.map((item) => {
-          return (
-            <SidebarGroup key={item.$id}>
-              <SidebarGroupLabel className="text-muted-foreground font-medium">
-                {item.name}
-              </SidebarGroupLabel>
-              <SidebarGroupContent>
-                {item.type === "folder" && (
-                  <SidebarMenu className="gap-0.5">
-                    {item.children.map((item) => {
-                      return (
-                        item.type === "page" && (
-                          <SidebarMenuItem key={item.url}>
-                            <SidebarMenuButton
-                              asChild
-                              isActive={item.url === pathname}
-                              className="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
-                            >
-                              <Link href={item.url}>
-                                <span className="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
-                                {item.name}
-                              </Link>
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                        )
-                      );
-                    })}
-                  </SidebarMenu>
-                )}
-              </SidebarGroupContent>
-            </SidebarGroup>
-          );
-        })}
+        {tree.children
+          .filter((i) => i.type === "folder")
+          .map((item) => {
+            return (
+              <SidebarGroup key={item.$id}>
+                <SidebarGroupLabel className="text-muted-foreground font-medium">
+                  {item.name}
+                </SidebarGroupLabel>
+                <SidebarGroupContent>
+                  {item.type === "folder" && (
+                    <SidebarMenu className="gap-0.5">
+                      {item.children.map((item) => {
+                        return (
+                          item.type === "page" && (
+                            <SidebarMenuItem key={item.url}>
+                              <SidebarMenuButton
+                                asChild
+                                isActive={item.url === pathname}
+                                className="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
+                              >
+                                <Link href={item.url}>
+                                  <span className="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
+                                  {item.name}
+                                </Link>
+                              </SidebarMenuButton>
+                            </SidebarMenuItem>
+                          )
+                        );
+                      })}
+                    </SidebarMenu>
+                  )}
+                </SidebarGroupContent>
+              </SidebarGroup>
+            );
+          })}
       </SidebarContent>
     </Sidebar>
   );

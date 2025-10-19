@@ -1,0 +1,55 @@
+---
+title: Installation
+description: Install and configure shadcn/ui for Laravel
+---
+
+<Steps>
+
+### Create project
+
+Start by creating a new Laravel project with Inertia and React using the laravel installer `laravel new my-app`:
+
+```bash
+laravel new my-app --react
+```
+
+### Install @wandry/inertia-form
+
+<CodeBlockCommand
+  __pnpm__="pnpm add @wandry/inertia-form"
+  __npm__="npm install @wandry/inertia-form"
+  __bun__="bun install @wandry/inertia-form"
+  __yarn__="yarn add @wandry/inertia-form"
+/>
+
+### Add Components
+
+You can now start adding components to your project.
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/text-field.json"
+  __npm__="npx shadcn@latest add https://wandry-ui.com/r/text-field.json"
+  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/text-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/text-field.json"
+/>
+
+The command above will add the `TextField` component to `resources/js/components/text-field.tsx`. You can then import it like this:
+
+```tsx title="resources/js/pages/index.tsx" {2,3,7,8,9} showLineNumbers
+import { Button } from "@/components/ui/button";
+import { TextField } from "@/components/text-field"
+import {Form} from '@wandry/inertia-form'
+
+const MyPage = () => {
+  return (
+    <Form action="/">
+      <TextField name="first_name" label="First Name" />
+      <Button type="submit">Submit</Button>
+    </Form>
+  )
+}
+
+export default MyPage
+```
+
+</Steps>
