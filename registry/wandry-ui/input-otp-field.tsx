@@ -24,7 +24,7 @@ export type InputOtpProps = Omit<
 type ResendFn = () => void;
 
 export type ResendProps = {
-  onResend: ResendFn;
+  onResend?: ResendFn;
   didntReceivePlaceholder?: string;
   resendButtonPlaceholder?: string;
   resendPlaceholder?: string;

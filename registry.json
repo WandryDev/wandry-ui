@@ -47,7 +47,7 @@
     },
     {
       "name": "radio-field",
-      "title": "Wandry UI Component",
+      "title": "Radio Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
       "dependencies": ["@wandry/inertia-form"],
@@ -75,7 +75,7 @@
     },
     {
       "name": "password-field",
-      "title": "Wandry UI Component",
+      "title": "Password Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
       "dependencies": ["lucide-react", "@wandry/inertia-form"],

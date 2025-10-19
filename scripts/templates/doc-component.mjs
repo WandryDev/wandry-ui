@@ -3,8 +3,7 @@ import { kebabToPascalCase } from "../utils.mjs";
 export const getDocComponentTemplate = (registryItem) => {
   if (!registryItem) return null;
 
-  return `
----
+  return `---
 title: ${registryItem.title}
 description: ${registryItem.description}
 ---
