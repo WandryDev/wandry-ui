@@ -19,14 +19,14 @@ try {
     if (fs.existsSync(answers.componentFilePath)) {
       console.error("Component path exists.");
       process.exit(0);
-    } else {
-      const componentTemplate = getComponentTemplate(answers.componentName);
-      fs.writeFileSync(answers.componentFilePath, componentTemplate);
     }
   }
 
   const { registry, item } = addRegistryItem(answers);
 
+  const componentTemplate = getComponentTemplate(answers.componentName);
+
+  fs.writeFileSync(answers.componentFilePath, componentTemplate);
   fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
 
   console.log(`Component ${answers.componentName} created successfully!`);

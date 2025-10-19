@@ -102,13 +102,18 @@ export const getComponentStepperInputs = async () => {
       default: true,
     });
 
+    const normilizedRegistryDependencies = registryDependencies
+      .split(" ")
+      .map((dep) => dep.trim())
+      .filter((dep) => Boolean(dep));
+
     return {
       componentName,
       componentFilePath,
       title,
       description,
       dependencies,
-      registryDependencies,
+      registryDependencies: normilizedRegistryDependencies,
       registryType,
       isRightComponentPath,
     };

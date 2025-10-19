@@ -6,13 +6,9 @@ import { spawn } from "child_process";
 const registryDepsPath = path.resolve("./", "components/ui");
 
 export const installRegistryDeps = async (answers) => {
-  const registryDeps = answers.registryDependencies.split(" ") ?? [];
+  if (!answers.registryDependencies?.length) return;
 
-  console.log("registryDeps?.length", registryDeps?.length);
-
-  if (!registryDeps?.length) return;
-
-  for (const dep of registryDeps) {
+  for (const dep of answers.registryDependencies) {
     const depPath = path.join(registryDepsPath, `${dep}.tsx`);
     if (!fs.existsSync(depPath)) {
       console.log(
