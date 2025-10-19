@@ -6,6 +6,8 @@ import { getComponentStepperInputs } from "./component-stepper.mjs";
 import { addRegistryItem } from "./add-registry-item.mjs";
 import { getComponentTemplate } from "./templates/component.mjs";
 import { installRegistryDeps } from "./install-registry-deps.mjs";
+import { createComponentDoc } from "./add-component-doc.mjs";
+import { addComponentDemo } from "./add-component-demo.mjs";
 
 const registryPath = path.resolve("./", "registry.json");
 
@@ -25,9 +27,16 @@ try {
   const { registry, item } = addRegistryItem(answers);
 
   const componentTemplate = getComponentTemplate(answers.componentName);
+  const componentDemo = addComponentDemo(answers.componentName);
 
+  fs.writeFileSync(componentDemo.path, componentDemo.template);
   fs.writeFileSync(answers.componentFilePath, componentTemplate);
   fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
+
+  if (answers.needComponentDoc) {
+    const doc = createComponentDoc(item);
+    fs.writeFileSync(doc.path, doc.template);
+  }
 
   console.log(`Component ${answers.componentName} created successfully!`);
 

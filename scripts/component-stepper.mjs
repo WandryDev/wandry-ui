@@ -102,6 +102,11 @@ export const getComponentStepperInputs = async () => {
       default: true,
     });
 
+    const needComponentDoc = await confirm({
+      message: `Do you want to create a documentation file for this component?`,
+      default: true,
+    });
+
     const normilizedRegistryDependencies = registryDependencies
       .split(" ")
       .map((dep) => dep.trim())
@@ -116,6 +121,7 @@ export const getComponentStepperInputs = async () => {
       registryDependencies: normilizedRegistryDependencies,
       registryType,
       isRightComponentPath,
+      needComponentDoc,
     };
   } catch (error) {
     console.error("Error getting component stepper inputs:", error);

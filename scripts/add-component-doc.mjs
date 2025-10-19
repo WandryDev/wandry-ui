@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { getDocComponentTemplate } from "./templates/doc-component";
+import { getDocComponentTemplate } from "./templates/doc-component.mjs";
 
 const docComponentsFolderPath = path.resolve("content/docs/components");
 
@@ -19,9 +19,10 @@ export const createComponentDoc = (regirstyItem) => {
       `${regirstyItem.name}.mdx`
     );
 
-    fs.writeFileSync(docComponentFilePath, docComponentTemplate);
-
-    return docComponentFilePath;
+    return {
+      path: docComponentFilePath,
+      template: docComponentTemplate,
+    };
   } catch (error) {
     console.error("Error creating doc component:", error);
     return;

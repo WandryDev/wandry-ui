@@ -4,7 +4,7 @@ export const getDocComponentTemplate = (registryItem) => {
   if (!registryItem) return null;
 
   return `
-        ---
+---
 title: ${registryItem.title}
 description: ${registryItem.description}
 ---
