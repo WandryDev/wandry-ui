@@ -5,13 +5,12 @@ export const getComponentDemoTemplate = (componentName) => {
   const componentDemoPropsName = `${componentDemoFNName}Props`;
 
   const componentFNName = kebabToPascalCase(componentName);
-  const componentPropsName = `${componentFNName}Props`;
 
   return `"use client";
 import * as React from "react";
 import {Form} from "@wandry/inertia-form";
 
-import { ${componentFNName}, ${componentPropsName} } from "../wandry-ui";
+import { ${componentFNName} } from "../wandry-ui";
 
 export type ${componentDemoPropsName} = {}
 

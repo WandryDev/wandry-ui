@@ -16,3 +16,9 @@ const ${componentFNName}: React.FC<${componentPropsName}> = (props) => {
 export default ${componentFNName};
 `;
 };
+
+export const getComponentExportTemplate = (componentName) => {
+  const componentFNName = kebabToPascalCase(componentName);
+
+  return `export { default as ${componentFNName} } from "./${componentName}";\n`;
+};

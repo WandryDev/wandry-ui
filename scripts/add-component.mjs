@@ -4,12 +4,20 @@ import fs from "fs";
 import path from "path";
 import { getComponentStepperInputs } from "./component-stepper.mjs";
 import { addRegistryItem } from "./add-registry-item.mjs";
-import { getComponentTemplate } from "./templates/component.mjs";
+import {
+  getComponentExportTemplate,
+  getComponentTemplate,
+} from "./templates/component.mjs";
 import { installRegistryDeps } from "./install-registry-deps.mjs";
 import { createComponentDoc } from "./add-component-doc.mjs";
 import { addComponentDemo } from "./add-component-demo.mjs";
 
 const registryPath = path.resolve("./", "registry.json");
+const registryComponentsIndexPath = path.resolve(
+  "registry",
+  "wandry-ui",
+  "index.ts"
+);
 
 try {
   const answers = await getComponentStepperInputs();
@@ -28,7 +36,11 @@ try {
 
   const componentTemplate = getComponentTemplate(answers.componentName);
   const componentDemo = addComponentDemo(answers.componentName);
+  const componentExportTemplate = getComponentExportTemplate(
+    answers.componentName
+  );
 
+  fs.appendFileSync(registryComponentsIndexPath, componentExportTemplate);
   fs.writeFileSync(componentDemo.path, componentDemo.template);
   fs.writeFileSync(answers.componentFilePath, componentTemplate);
   fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
@@ -38,7 +50,18 @@ try {
     fs.writeFileSync(doc.path, doc.template);
   }
 
-  console.log(`Component ${answers.componentName} created successfully!`);
+  console.log("\n");
+  console.log(`- Create component at ${answers.componentFilePath}`);
+  console.log(`- Create demo at ${componentDemo.path}`);
+  if (answers.needComponentDoc) {
+    console.log(
+      `- Create doc at content/docs/components/${answers.componentName}.mdx`
+    );
+  }
+  console.log(`- Update registry at ${registryPath}`);
+  console.log(`- Update wandry-ui exports at ${registryComponentsIndexPath}`);
+
+  console.log(`✅ Component ${answers.componentName} created successfully!`);
 
   await installRegistryDeps(answers);
 } catch (error) {
