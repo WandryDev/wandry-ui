@@ -25,6 +25,7 @@
     "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-tabs": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@tailwindcss/postcss": "^4.1.14",
     "@types/mdx": "^2.0.13",
     "@wandry/inertia-form": "^1.6.1",
     "button": "^1.1.1",
@@ -38,6 +39,7 @@
     "input-otp": "^1.4.2",
     "lucide-react": "^0.487.0",
     "next": "15.5.2",
+    "postcss": "^8.5.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "rehype-pretty-code": "^0.14.1",
@@ -51,7 +53,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@inquirer/prompts": "^7.9.0",
-    "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20.19.9",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
