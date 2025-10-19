@@ -3,6 +3,8 @@ import type { MDXComponents } from "mdx/types";
 import { createGenerator } from "fumadocs-typescript";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 
 import { ComponentInstallation } from "@/components/component-installation";
@@ -282,6 +284,23 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Steps: ({ ...props }) => (
       <div
         className="[&>h3]:step steps mb-12 [counter-reset:step] *:[h3]:first:!mt-0"
+        {...props}
+      />
+    ),
+    Image: ({
+      src,
+      className,
+      width,
+      height,
+      alt,
+      ...props
+    }: React.ComponentProps<"img">) => (
+      <Image
+        className={cn("mt-6 rounded-md border", className)}
+        src={src || ("" as any)}
+        width={Number(width)}
+        height={Number(height)}
+        alt={alt || ""}
         {...props}
       />
     ),

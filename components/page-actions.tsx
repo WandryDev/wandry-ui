@@ -205,7 +205,7 @@ export function ViewOptions({
 
   return (
     <Popover>
-      <PopoverTrigger>
+      <PopoverTrigger asChild>
         <Button variant="outline">
           Open
           <ChevronDown className="size-3.5 text-fd-muted-foreground" />
