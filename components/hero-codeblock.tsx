@@ -17,9 +17,6 @@ import {
   CodeBlockSelectValue,
 } from "@/components/kibo-ui/code-block";
 
-import { CodeBlock as AnimatedCodeBlock } from "@/components/animate-ui/primitives/animate/code-block";
-
-import { cn } from "@/lib/cn";
 import { Form } from "@wandry/inertia-form";
 import { PasswordField, TextField } from "@/registry/wandry-ui";
 import { Button } from "./ui/button";
