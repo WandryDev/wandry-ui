@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-field",
+  "type": "registry:component",
+  "title": "Checkbox Field",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/checkbox-field.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport { useField } from \"@wandry/inertia-form\";\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport { Checkbox } from \"@/components/ui/checkbox\";\n\nexport type CheckboxFieldProps = {\n  name: string;\n  label?: string;\n  description?: string;\n  orientation?: \"vertical\" | \"horizontal\" | \"responsive\";\n};\n\nconst CheckboxField: React.FC<CheckboxFieldProps> = ({\n  name,\n  label,\n  description,\n  orientation = \"horizontal\",\n}) => {\n  const field = useField(name, { defaultValue: false });\n\n  return (\n    <Field orientation={orientation}>\n      <Checkbox\n        id={name}\n        name={name}\n        checked={field.value}\n        onCheckedChange={field.onChange}\n      />\n      <FieldLabel htmlFor={name} className=\"font-normal\" defaultChecked>\n        {label}\n      </FieldLabel>\n      <FieldDescription>{description}</FieldDescription>\n      <FieldError>{field.error}</FieldError>\n    </Field>\n  );\n};\n\nexport default CheckboxField;\n",
+      "type": "registry:component"
+    }
+  ]
+}

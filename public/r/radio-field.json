@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-field",
+  "type": "registry:component",
+  "title": "Radio Field",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "radio-group"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/radio-field.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport { useField } from \"@wandry/inertia-form\";\nimport { RadioGroup, RadioGroupItem } from \"@/components/ui/radio-group\";\nimport { Field, FieldLabel } from \"@/components/ui/field\";\n\nexport type Option = {\n  value: string;\n  label: string;\n};\n\nexport type RadioFieldProps = {\n  name: string;\n  options: Option[];\n  orientation?: \"vertical\" | \"horizontal\" | \"responsive\";\n};\n\nconst RadioField: React.FC<RadioFieldProps> = ({\n  name,\n  options,\n  orientation = \"horizontal\",\n}) => {\n  const field = useField(name);\n\n  return (\n    <RadioGroup\n      defaultValue=\"monthly\"\n      value={field.value}\n      onValueChange={field.onChange}\n    >\n      {options.map((option) => (\n        <Field orientation={orientation} key={option.value}>\n          <RadioGroupItem value={option.value} id={option.value} />\n          <FieldLabel htmlFor={option.value} className=\"font-normal\">\n            {option.label}\n          </FieldLabel>\n        </Field>\n      ))}\n    </RadioGroup>\n  );\n};\n\nexport default RadioField;\n",
+      "type": "registry:component"
+    }
+  ]
+}
