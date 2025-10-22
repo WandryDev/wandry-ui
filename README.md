@@ -1,23 +1,83 @@
-# registry-template
+---
+title: Getting Started
+description: Introduction to Wandry UI - shadcn/ui registry for form components
+---
 
-You can use the `shadcn` CLI to run your own component registry. Running your own
-component registry allows you to distribute your custom components, hooks, pages, and
-other files to any React project.
+Wandry UI is a comprehensive shadcn/ui registry that provides ready-to-use form components designed to work seamlessly with [@wandry/inertia-form](https://github.com/WandryDev/inertia-form). This registry simplifies form construction by offering a curated collection of form fields that integrate perfectly with Inertia.js applications.
 
-> [!IMPORTANT]  
-> This template uses Tailwind v4. For Tailwind v3, see [registry-template-v3](https://github.com/shadcn-ui/registry-template-v3).
+## About @wandry/inertia-form
+
+{" "}
+
+<Image
+  src="/images/hero.png"
+  width="1432"
+  height="960"
+  alt="VS"
+  className="border"
+/>
+
+[@wandry/inertia-form](https://github.com/WandryDev/inertia-form) is a production-ready React form component library specifically built for Inertia.js applications. It provides essential form management capabilities including:
+
+- **State Management**: Automatic form state handling and synchronization
+- **Change Tracking**: Built-in change detection and dirty state management
+- **Field Management**: Simplified field registration and validation
+- **TypeScript Support**: Full TypeScript integration with type safety
+- **Modern UI Integration**: Seamless integration with Radix UI, shadcn/ui, and Tailwind CSS
+
+The library serves as the foundation for form handling in Inertia.js applications, offering developers a robust and developer-friendly approach to building complex forms.
+
+## Why Wandry UI?
+
+Building forms in modern web applications often involves repetitive tasks and boilerplate code. Wandry UI addresses this challenge by providing:
+
+### **Rapid Form Development**
+
+Instead of creating form fields from scratch, developers can simply install pre-built components from the registry. This approach significantly reduces development time and ensures consistency across applications.
+
+### **Consistent Design System**
+
+All components in the registry follow the same design principles and patterns, ensuring visual and functional consistency throughout your application. This consistency improves user experience and reduces maintenance overhead.
+
+### **Production-Ready Components**
+
+Each component in the registry is battle-tested and production-ready. They handle edge cases, accessibility requirements, and provide robust error handling out of the box.
+
+### **Seamless Integration**
+
+Components are designed to work perfectly with @wandry/inertia-form, providing a cohesive development experience. No additional configuration or wrapper components are needed.
+
+### **Extensibility**
+
+While the registry provides ready-to-use components, the architecture allows for easy customization and extension to meet specific project requirements.
+
+## What You Can Build
+
+With Wandry UI, you can quickly construct various types of forms:
+
+- **User Registration and Authentication Forms**
+- **Data Collection and Survey Forms**
+- **Settings and Configuration Forms**
+- **Search and Filter Interfaces**
+- **Multi-step Wizards**
+- **Complex Data Entry Forms**
+
+The registry provides components for common form patterns including text inputs, select dropdowns, checkboxes, radio buttons, and specialized fields like OTP inputs and password fields.
 
 ## Getting Started
 
-This is a template for creating a custom registry using Next.js.
+To begin using Wandry UI components in your project:
 
-- The template uses a `registry.json` file to define components and their files.
-- The `shadcn build` command is used to build the registry.
-- The registry items are served as static files under `public/r/[name].json`.
-- The template also includes a route handler for serving registry items.
-- Every registry item are compatible with the `shadcn` CLI.
-- We have also added v0 integration using the `Open in v0` api.
+1. **Install Components**: Use the shadcn CLI to add components to your project
+2. **Import and Use**: Import components and wrap them in @wandry/inertia-form's Form component
+3. **Customize**: Modify components as needed for your specific requirements
 
-## Documentation
+Each component includes comprehensive documentation with installation instructions, usage examples, and prop definitions to help you get started quickly.
 
-Visit the [shadcn documentation](https://ui.shadcn.com/docs/registry) to view the full documentation.
+## Next Steps
+
+- Explore the [Components](/docs/components) section to see available form fields
+- Learn about component installation and usage patterns
+- Start building your first form with Wandry UI components
+
+Ready to get started? Head over to the [Components](/docs/components) section to explore the available form fields and begin building your forms.

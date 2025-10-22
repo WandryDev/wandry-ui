@@ -19,7 +19,7 @@ const description =
 
 export const HeroSection: React.FC = () => {
   return (
-    <PageHeader>
+    <PageHeader className="md:py-10">
       <motion.div
         animate={{
           opacity: [0, 1],

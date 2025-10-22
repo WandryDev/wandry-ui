@@ -16,7 +16,7 @@ export interface DocsPageProps {
 export function DocsPage(props: DocsPageProps) {
   return (
     <main className="flex w-full h-full min-w-0 flex-col pt-10">
-      <article className="flex flex-1 flex-col w-full max-w-[50vw] gap-6 px-4 py-8 md:px-6">
+      <article className="flex flex-1 flex-col w-full max-w-[50vw] gap-6 px-4 md:px-6">
         {props.children}
         <Footer />
       </article>
