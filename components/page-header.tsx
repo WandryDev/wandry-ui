@@ -8,7 +8,7 @@ function PageHeader({
   return (
     <section className={cn("border-grid", className)} {...props}>
       <div className="container-wrapper">
-        <div className="container flex flex-col items-center gap-2 py-8 text-center md:py-16 lg:py-20 xl:gap-4">
+        <div className="container flex flex-col items-center gap-2 py-8 text-center md:py-14 xl:gap-4">
           {children}
         </div>
       </div>
@@ -23,7 +23,7 @@ function PageHeaderHeading({
   return (
     <h1
       className={cn(
-        "text-primary leading-tighter max-w-2xl text-4xl font-semibold tracking-tight text-balance lg:leading-[1.1] lg:font-semibold xl:text-5xl xl:tracking-tighter",
+        "text-primary leading-tighter max-w-5xl text-4xl uppercase font-semibold tracking-tight text-balance lg:leading-[1.1] lg:font-bold xl:text-6xl xl:tracking-tighter",
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ function PageHeaderDescription({
   return (
     <p
       className={cn(
-        "text-foreground max-w-3xl text-base text-balance sm:text-lg",
+        "text-foreground max-w-3xl text-lg text-balance sm:text-lg",
         className
       )}
       {...props}
