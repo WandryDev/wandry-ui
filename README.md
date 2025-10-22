@@ -1,8 +1,8 @@
+![Wandry Inertia Form](public/images/main.png)
+
 Wandry UI is a comprehensive shadcn/ui registry that provides ready-to-use form components designed to work seamlessly with [@wandry/inertia-form](https://github.com/WandryDev/inertia-form). This registry simplifies form construction by offering a curated collection of form fields that integrate perfectly with Inertia.js applications.
 
 ## About @wandry/inertia-form
-
-![Wandry Inertia Form](public/images/main.png)
 
 [@wandry/inertia-form](https://github.com/WandryDev/inertia-form) is a production-ready React form component library specifically built for Inertia.js applications. It provides essential form management capabilities including:
 
