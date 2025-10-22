@@ -3,8 +3,7 @@ import Link from "next/link";
 
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-
-const githubLink = "https://github.com/WandryDev/wandry-ui";
+import { githubLink } from "@/lib/site-config";
 
 export function GitHubLink() {
   return (

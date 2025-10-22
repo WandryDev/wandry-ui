@@ -30,7 +30,9 @@ export const HeroSection: React.FC = () => {
           },
         }}
       >
-        <PageHeaderHeading className="max-w-8xl">{title}</PageHeaderHeading>
+        <PageHeaderHeading className="max-w-6xl tracking-normal">
+          {title}
+        </PageHeaderHeading>
       </motion.div>
       <motion.div
         animate={{

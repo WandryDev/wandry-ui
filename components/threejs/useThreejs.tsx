@@ -23,7 +23,7 @@ export const useThreejs = (render: RenderFn) => {
     scene.background = null;
 
     const camera = new THREE.PerspectiveCamera(
-      45,
+      35,
       mountRef.current.clientWidth / mountRef.current.clientHeight,
       0.1,
       20

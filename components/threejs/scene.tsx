@@ -33,7 +33,7 @@ const applyAnimations = (model: any, animation: any, mixers: any[]) => {
 };
 
 const setArmaturePosition = (armature: any) => {
-  armature.position.y = 0;
+  armature.position.y = -0.7;
   armature.position.x = 0;
   armature.position.z = -3.5;
 
@@ -63,9 +63,8 @@ export const ThreeScene = () => {
       className="w-full h-full"
       style={{
         width: "100%",
-        height: "100vh",
+        height: "55vh",
         overflow: "hidden",
-        marginTop: "-4vh",
       }}
     />
   );
