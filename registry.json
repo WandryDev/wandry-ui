@@ -8,8 +8,13 @@
       "type": "registry:component",
       "title": "TextField",
       "description": "Controlled text input component with label and error message support.",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["input-group", "field"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "input-group",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/text-field.tsx",
@@ -22,8 +27,13 @@
       "title": "Select Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["select"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "select",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/select-field.tsx",
@@ -36,8 +46,13 @@
       "title": "Checkbox Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["checkbox"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "checkbox",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/checkbox-field.tsx",
@@ -50,8 +65,13 @@
       "title": "Radio Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["radio-group"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "radio-group",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/radio-field.tsx",
@@ -64,8 +84,13 @@
       "title": "Textarea Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["textarea"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "textarea",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/textarea-field.tsx",
@@ -78,8 +103,14 @@
       "title": "Password Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["lucide-react", "@wandry/inertia-form"],
-      "registryDependencies": ["input-group"],
+      "dependencies": [
+        "lucide-react",
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "input-group",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/password-field.tsx",
@@ -92,8 +123,13 @@
       "title": "Switch Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["switch"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "switch",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/switch-field.tsx",
@@ -106,8 +142,15 @@
       "title": "AsyncAutocompleteField",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["popover", "command", "button"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "popover",
+        "command",
+        "button",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/async-autocomplete-field.tsx",
@@ -120,11 +163,116 @@
       "title": "InputOtpField",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["input-otp"],
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "input-otp",
+        "field"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/input-otp-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "datepicker-field",
+      "title": "DatepickerField",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "calendar",
+        "popover",
+        "button",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/datepicker-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "timepicker-field",
+      "title": "Timepicker Field",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "input",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/timepicker-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "datepicker-range-field",
+      "title": "Datepicker Range Field",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "calendar",
+        "popover",
+        "field",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/datepicker-range-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "slider-field",
+      "title": "Slider Field",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "slider",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/slider-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file-field",
+      "title": "File Field",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "input",
+        "field",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/file-field.tsx",
           "type": "registry:component"
         }
       ]

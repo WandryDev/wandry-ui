@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "datepicker-range-field",
+  "type": "registry:component",
+  "title": "Datepicker Range Field",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "calendar",
+    "popover",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/datepicker-range-field.tsx",
+      "content": "\"use client\";\nimport * as React from \"react\";\nimport { DateRange } from \"react-day-picker\";\nimport { CalendarIcon } from \"lucide-react\";\nimport { useWatch, useFormContext, useField } from \"@wandry/inertia-form\";\n\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\";\nimport { Button } from \"@/components/ui/button\";\n\nimport { Calendar } from \"@/components/ui/calendar\";\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/components/ui/field\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type DatepickerRangeFieldProps = {\n  nameFrom: string;\n  nameTo: string;\n  label?: string;\n  placeholder?: string;\n  description?: string;\n};\n\nconst DatepickerRangeField: React.FC<DatepickerRangeFieldProps> = ({\n  nameFrom,\n  nameTo,\n  label,\n  placeholder = \"Pick a date range\",\n  description,\n}) => {\n  const { setValue } = useFormContext();\n\n  const from = useWatch(nameFrom, { defaultValue: new Date() });\n  const to = useWatch(nameTo, { defaultValue: new Date() });\n\n  const { error: errorFrom } = useField(nameFrom);\n  const { error: errorTo } = useField(nameTo);\n\n  const onChange = (range: DateRange) => {\n    setValue(nameFrom, range.from);\n    setValue(nameTo, range.to);\n  };\n\n  return (\n    <Field>\n      <FieldLabel>{label}</FieldLabel>\n      <Popover>\n        <PopoverTrigger asChild>\n          <Button\n            className={cn(\"w-[280px] justify-start text-left font-normal\")}\n            variant=\"outline\"\n            suppressHydrationWarning\n          >\n            <CalendarIcon className=\"mr-2 h-4 w-4\" />\n            {from ? (\n              to ? (\n                <>\n                  {from.toLocaleDateString()} - {to.toLocaleDateString()}\n                </>\n              ) : (\n                from.toLocaleDateString()\n              )\n            ) : (\n              <span>{placeholder}</span>\n            )}\n          </Button>\n        </PopoverTrigger>\n        <PopoverContent align=\"start\" className=\"w-auto p-0\">\n          <Calendar\n            required\n            mode=\"range\"\n            numberOfMonths={2}\n            onSelect={onChange}\n            selected={{ from, to }}\n          />\n        </PopoverContent>\n      </Popover>\n      <FieldDescription>{description}</FieldDescription>\n      <FieldError>{errorFrom}</FieldError>\n      <FieldError>{errorTo}</FieldError>\n    </Field>\n  );\n};\n\nexport default DatepickerRangeField;\n",
+      "type": "registry:component"
+    }
+  ]
+}

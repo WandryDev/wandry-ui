@@ -1,0 +1,44 @@
+---
+title: Datepicker Range Field
+description: A component for Wandry UI
+---
+
+## Installation
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/datepicker-range-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/datepicker-range-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/datepicker-range-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/datepicker-range-field.json"
+/>
+
+## Example
+
+<ComponentPreview
+  src="/registry/examples/datepicker-range-field-demo.tsx"
+  name="datepicker-range-field-demo"
+  description="A component for Wandry UI"
+  align="center"
+/>
+
+## Usage
+
+```tsx
+import DatepickerRangeField from "@/components/datepicker-range-field";
+```
+
+```tsx
+<DatepickerRangeField
+  nameFrom="startDate"
+  nameTo="endDate"
+  label="Select Date Range"
+  description="Please select a start and end date."
+/>
+```
+
+## Props
+
+<AutoTypeTable
+  path="registry/wandry-ui/datepicker-range-field.tsx"
+  name="DatepickerRangeFieldProps"
+/>

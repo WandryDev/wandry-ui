@@ -1,0 +1,44 @@
+---
+title: Timepicker Field
+description: A component for Wandry UI
+---
+
+## Installation
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/timepicker-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/timepicker-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/timepicker-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/timepicker-field.json"
+/>
+
+## Example
+
+<ComponentPreview
+  src="/registry/examples/timepicker-field-demo.tsx"
+  name="timepicker-field-demo"
+  description="A component for Wandry UI"
+  align="center"
+/>
+
+## Usage
+
+```tsx
+import TimepickerField from "@/components/timepicker-field";
+```
+
+```tsx
+<TimepickerField
+  name="appointment_time"
+  label="Appointment Time"
+  placeholder="Select time"
+  description="Please select a time for your appointment."
+/>
+```
+
+## Props
+
+<AutoTypeTable
+  path="registry/wandry-ui/timepicker-field.tsx"
+  name="TimepickerFieldProps"
+/>

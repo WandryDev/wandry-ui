@@ -1,0 +1,60 @@
+---
+title: Slider Field
+description: A component for Wandry UI
+---
+
+## Installation
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/slider-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/slider-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/slider-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/slider-field.json"
+/>
+
+## Example
+
+<ComponentPreview
+  src="/registry/examples/slider-field-demo.tsx"
+  name="slider-field-demo"
+  description="A component for Wandry UI"
+  align="center"
+/>
+
+## Usage
+
+```tsx
+import SliderField from "@/components/slider-field";
+```
+
+```tsx
+<SliderField
+  name="volume"
+  label="Volume"
+  description="Adjust the volume level"
+  min={0}
+  max={100}
+  step={1}
+/>
+```
+
+## Usage Slider range
+
+```tsx
+<SliderField
+  name="volume"
+  label="Volume"
+  description="Adjust the volume level"
+  min={0}
+  max={100}
+  step={1}
+  defaultValue={[20, 80]}
+/>
+```
+
+## Props
+
+<AutoTypeTable
+  path="registry/wandry-ui/slider-field.tsx"
+  name="SliderFieldProps"
+/>

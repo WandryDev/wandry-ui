@@ -7,3 +7,8 @@ export { default as PasswordField } from "./password-field";
 export { default as SwitchField } from "./switch-field";
 export { default as AsyncAutocompleteField } from "./async-autocomplete-field";
 export { default as InputOtpField } from "./input-otp-field";
+export { default as DatepickerField } from "./datepicker-field";
+export { default as TimepickerField } from "./timepicker-field";
+export { default as DatepickerRangeField } from "./datepicker-range-field";
+export { default as SliderField } from "./slider-field";
+export { default as FileField } from "./file-field";

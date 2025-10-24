@@ -1,0 +1,44 @@
+---
+title: DatepickerField
+description: A component for Wandry UI
+---
+
+## Installation
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/datepicker-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/datepicker-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/datepicker-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/datepicker-field.json"
+/>
+
+## Example
+
+<ComponentPreview
+  src="/registry/examples/datepicker-field-demo.tsx"
+  name="datepicker-field-demo"
+  description="A component for Wandry UI"
+  align="center"
+/>
+
+## Usage
+
+```tsx
+import DatepickerField from "@/components/datepicker-field";
+```
+
+```tsx
+<DatepickerField
+  name="date"
+  label="Date"
+  placeholder="Select a date"
+  description="Open calendar and select"
+/>
+```
+
+## Props
+
+<AutoTypeTable
+  path="registry/wandry-ui/datepicker-field.tsx"
+  name="DatepickerFieldProps"
+/>

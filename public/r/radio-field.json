@@ -5,10 +5,11 @@
   "title": "Radio Field",
   "description": "A component for Wandry UI",
   "dependencies": [
-    "@wandry/inertia-form@^1.7.0-beta.1"
+    "@wandry/inertia-form"
   ],
   "registryDependencies": [
-    "radio-group"
+    "radio-group",
+    "field"
   ],
   "files": [
     {

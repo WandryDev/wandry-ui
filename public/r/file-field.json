@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "file-field",
+  "type": "registry:component",
+  "title": "File Field",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "input",
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/file-field.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { useField } from \"@wandry/inertia-form\";\nimport { FileText, X } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Field, FieldDescription, FieldLabel } from \"@/components/ui/field\";\nimport { Input } from \"@/components/ui/input\";\n\nexport type FileFieldProps = {\n  name: string;\n  label?: string;\n  description?: string;\n  placeholder?: string;\n  accept?: string;\n};\n\nconst FileField: React.FC<FileFieldProps> = ({\n  name,\n  label,\n  description,\n  accept,\n}) => {\n  const field = useField(name, { defaultValue: [] as File[] });\n\n  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {\n    if (e.target.files) {\n      field.onChange(Array.from(e.target.files));\n    }\n  };\n  const removeFile = (index: number) => {\n    field.onChange(field.value.filter((_: File, i: number) => i !== index));\n  };\n\n  return (\n    <Field>\n      <FieldLabel htmlFor={name}>{label} </FieldLabel>\n      <Input\n        id={name}\n        type=\"file\"\n        multiple\n        onChange={handleFileChange}\n        accept={accept}\n      />\n      {field.value.length > 0 && (\n        <div className=\"space-y-2\">\n          {field.value.map((file: File, index: number) => (\n            <div\n              className=\"flex items-center justify-between rounded-md border p-2\"\n              key={index}\n            >\n              <div className=\"flex items-center gap-2\">\n                <FileText className=\"h-4 w-4 text-muted-foreground\" />\n                <span className=\"text-sm text-ellipsis max-w-[60%]\">\n                  {file.name}\n                </span>\n                <span className=\"text-muted-foreground text-xs\">\n                  ({(file.size / 1024).toFixed(1)} KB)\n                </span>\n              </div>\n              <Button\n                className=\"h-6 w-6\"\n                onClick={() => removeFile(index)}\n                size=\"icon\"\n                type=\"button\"\n                variant=\"ghost\"\n              >\n                <X className=\"h-3 w-3\" />\n              </Button>\n            </div>\n          ))}\n        </div>\n      )}\n      <FieldDescription>{description}</FieldDescription>\n    </Field>\n  );\n};\n\nexport default FileField;\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "timepicker-field",
+  "type": "registry:component",
+  "title": "Timepicker Field",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "input",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/timepicker-field.tsx",
+      "content": "\"use client\";\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport { Input } from \"@/components/ui/input\";\nimport { useField } from \"@wandry/inertia-form\";\nimport * as React from \"react\";\n\nexport type TimepickerFieldProps = {\n  name: string;\n  label?: string;\n  placeholder?: string;\n  description?: string;\n};\n\nconst TimepickerField: React.FC<TimepickerFieldProps> = ({\n  name,\n  label,\n  description,\n  placeholder,\n}) => {\n  const field = useField(name, { defaultValue: \"\" });\n\n  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {\n    field.onChange(event.target.value);\n  };\n\n  return (\n    <Field>\n      <FieldLabel htmlFor={name}>{label}</FieldLabel>\n      <Input\n        type=\"time\"\n        id={name}\n        step=\"1\"\n        placeholder={placeholder}\n        value={field.value}\n        onChange={handleChange}\n        className=\"bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none\"\n      />\n      <FieldDescription>{description}</FieldDescription>\n      <FieldError>{field.error}</FieldError>\n    </Field>\n  );\n};\n\nexport default TimepickerField;\n",
+      "type": "registry:component"
+    }
+  ]
+}

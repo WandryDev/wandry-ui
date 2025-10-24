@@ -5,10 +5,11 @@
   "title": "Checkbox Field",
   "description": "A component for Wandry UI",
   "dependencies": [
-    "@wandry/inertia-form@^1.7.0-beta.1"
+    "@wandry/inertia-form"
   ],
   "registryDependencies": [
-    "checkbox"
+    "checkbox",
+    "field"
   ],
   "files": [
     {

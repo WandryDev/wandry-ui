@@ -1,0 +1,41 @@
+---
+title: File Field
+description: A component for Wandry UI
+---
+
+## Installation
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/file-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/file-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/file-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/file-field.json"
+/>
+
+## Example
+
+<ComponentPreview
+  src="/registry/examples/file-field-demo.tsx"
+  name="file-field-demo"
+  description="A component for Wandry UI"
+  align="center"
+/>
+
+## Usage
+
+```tsx
+import FileField from "@/components/file-field";
+```
+
+```tsx
+<FileField
+  name="documents"
+  label="Upload Documents"
+  description="Please upload your documents in PDF or DOCX format."
+  accept=".pdf,.docx"
+/>
+```
+
+## Props
+
+<AutoTypeTable path="registry/wandry-ui/file-field.tsx" name="FileFieldProps" />
