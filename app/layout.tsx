@@ -2,6 +2,8 @@ import "./styles/globals.css";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import { Inter } from "next/font/google";
 
+import { Analytics } from "@vercel/analytics/next";
+
 import { ThemeProvider } from "next-themes";
 import { SiteHeader } from "@/components/site-nav";
 import { cn } from "@/lib/utils";
@@ -22,6 +24,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
           </RootProvider>
           <SiteFooter />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
