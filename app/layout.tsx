@@ -1,6 +1,6 @@
 import "./styles/globals.css";
 import { RootProvider } from "fumadocs-ui/provider/next";
-import { Inter, Lato } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import { ThemeProvider } from "next-themes";
 import { SiteHeader } from "@/components/site-nav";

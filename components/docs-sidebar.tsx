@@ -22,6 +22,10 @@ const TOP_LEVEL_SECTIONS = [
     name: "Components",
     href: "/docs/components",
   },
+  {
+    name: "Wandry Inertia Form",
+    href: "/docs/wandry-inertia-form",
+  },
 ];
 
 export function DocsSidebar({
