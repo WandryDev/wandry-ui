@@ -3,7 +3,7 @@ import * as React from "react";
 import { Form } from "@wandry/inertia-form";
 
 import { loadFrameworksOptions } from "@/app/mocks";
-import { AsyncAutocompleteField } from "../wandry-ui";
+import AsyncAutocompleteField from "@/registry/wandry-ui/async-autocomplete-field";
 
 export type AsyncAutocompleteFieldDemoProps = {};
 

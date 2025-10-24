@@ -12,6 +12,13 @@ import {
 import { Button } from "./ui/button";
 
 import { motion } from "motion/react";
+import { Lato } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+});
 
 const title = "Simplified Form Components for Inertia.js & React.js";
 const description =
@@ -30,7 +37,9 @@ export const HeroSection: React.FC = () => {
           },
         }}
       >
-        <PageHeaderHeading className="max-w-6xl tracking-normal">
+        <PageHeaderHeading
+          className={cn("max-w-6xl tracking-normal", lato.className)}
+        >
           {title}
         </PageHeaderHeading>
       </motion.div>
@@ -44,7 +53,7 @@ export const HeroSection: React.FC = () => {
           },
         }}
       >
-        <PageHeaderDescription className="sm:text-xl ">
+        <PageHeaderDescription className={cn("sm:text-xl", lato.className)}>
           {description}
         </PageHeaderDescription>
       </motion.div>

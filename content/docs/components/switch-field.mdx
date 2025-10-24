@@ -6,19 +6,34 @@ description: A component for Wandry UI
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/switch-field.json"
-  __npm__="npx shadcn@latest add https://wandry-ui.com/r/switch-field.json"
-  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/switch-field.json"
-  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/switch-field.json"
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/switch-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/switch-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/switch-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/switch-field.json"
 />
 
 ## Usage
 
 <ComponentPreview
+  src="/registry/examples/switch-field-demo.tsx"
   name="switch-field-demo"
   description="A component for Wandry UI"
   align="center"
 />
+
+## Usage
+
+```tsx
+import SwitchField from "@/components/switch-field";
+```
+
+```tsx
+<SwitchField
+  name="2fa"
+  label="Multi-factor authentication"
+  description="Enable multi-factor authentication. If you do not have a two-factor device, you can use a one-time code sent to your email."
+/>
+```
 
 ## Props
 

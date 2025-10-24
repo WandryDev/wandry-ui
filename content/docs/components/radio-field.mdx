@@ -6,19 +6,36 @@ description: A component for Wandry UI
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/radio-field.json"
-  __npm__="npx shadcn@latest add https://wandry-ui.com/r/radio-field.json"
-  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/radio-field.json"
-  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/radio-field.json"
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/radio-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/radio-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/radio-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/radio-field.json"
 />
 
 ## Usage
 
 <ComponentPreview
+  src="/registry/examples/radio-field-demo.tsx"
   name="radio-field-demo"
   description="A component for Wandry UI"
   align="center"
 />
+
+## Usage
+
+```tsx
+import RadioField from "@/components/radio-field";
+```
+
+```tsx
+<RadioField
+  name="plan"
+  options={[
+    { value: "monthly", label: "Monthly" },
+    { value: "yearly", label: "Yearly" },
+  ]}
+/>
+```
 
 ## Props
 

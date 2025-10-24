@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Form } from "@wandry/inertia-form";
 
-import { SwitchField } from "../wandry-ui";
+import SwitchField from "@/registry/wandry-ui/switch-field";
 
 export type SwitchFieldDemoProps = {};
 

@@ -10,7 +10,7 @@ export const getComponentDemoTemplate = (componentName) => {
 import * as React from "react";
 import {Form} from "@wandry/inertia-form";
 
-import { ${componentFNName} } from "../wandry-ui";
+import ${componentFNName} from "@/registry/wandry-ui/${componentName}.tsx";
 
 export type ${componentDemoPropsName} = {}
 

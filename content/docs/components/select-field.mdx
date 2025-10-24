@@ -6,19 +6,46 @@ description: A component for Wandry UI
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/select-field.json"
-  __npm__="npx shadcn@latest add https://wandry-ui.com/r/select-field.json"
-  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/select-field.json"
-  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/select-field.json"
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/select-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/select-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/select-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/select-field.json"
 />
 
 ## Usage
 
 <ComponentPreview
+  src="/registry/examples/select-field-demo.tsx"
   name="select-field-demo"
   description="A component for Wandry UI"
   align="center"
 />
+
+## Usage
+
+```tsx
+import SelectField from "@/components/select-field";
+```
+
+```tsx
+<SelectField
+  name="last_name"
+  label="Last Name"
+  placeholder="Select your last name"
+  options={{
+    "Last Names A-M": [
+      { value: "anderson", label: "Anderson" },
+      { value: "brown", label: "Brown" },
+      { value: "martin", label: "Martin" },
+    ],
+    "Last Names N-Z": [
+      { value: "nguyen", label: "Nguyen" },
+      { value: "roberts", label: "Roberts" },
+      { value: "wilson", label: "Wilson" },
+    ],
+  }}
+/>
+```
 
 ## Props
 

@@ -11,16 +11,16 @@ description: ${registryItem.description}
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/${
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/${
     registryItem.name
   }.json"
-  __npm__="npx shadcn@latest add https://wandry-ui.com/r/${
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/${
     registryItem.name
   }.json"
-  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/${
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/${
     registryItem.name
   }.json"
-  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/${
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/${
     registryItem.name
   }.json"
 />
@@ -28,6 +28,7 @@ description: ${registryItem.description}
 ## Usage
 
 <ComponentPreview
+  src="/registry/examples/${registryItem.name}-demo.tsx"
   name="${registryItem.name}-demo"
   description="${registryItem.description}"
   align="center"

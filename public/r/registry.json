@@ -8,7 +8,7 @@
       "type": "registry:component",
       "title": "TextField",
       "description": "Controlled text input component with label and error message support.",
-      "dependencies": ["@wandry/inertia-form"],
+      "dependencies": ["@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["input-group", "field"],
       "files": [
         {
@@ -22,7 +22,7 @@
       "title": "Select Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
+      "dependencies": ["@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["select"],
       "files": [
         {
@@ -36,7 +36,7 @@
       "title": "Checkbox Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
+      "dependencies": ["@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["checkbox"],
       "files": [
         {
@@ -50,7 +50,7 @@
       "title": "Radio Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
+      "dependencies": ["@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["radio-group"],
       "files": [
         {
@@ -64,7 +64,7 @@
       "title": "Textarea Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
+      "dependencies": ["@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["textarea"],
       "files": [
         {
@@ -78,7 +78,7 @@
       "title": "Password Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["lucide-react", "@wandry/inertia-form"],
+      "dependencies": ["lucide-react", "@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["input-group"],
       "files": [
         {
@@ -92,7 +92,7 @@
       "title": "Switch Field",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
+      "dependencies": ["@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["switch"],
       "files": [
         {
@@ -106,7 +106,7 @@
       "title": "AsyncAutocompleteField",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
+      "dependencies": ["@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["popover", "command", "button"],
       "files": [
         {
@@ -120,7 +120,7 @@
       "title": "InputOtpField",
       "type": "registry:component",
       "description": "A component for Wandry UI",
-      "dependencies": ["@wandry/inertia-form"],
+      "dependencies": ["@wandry/inertia-form@^1.7.0-beta.1"],
       "registryDependencies": ["input-otp"],
       "files": [
         {

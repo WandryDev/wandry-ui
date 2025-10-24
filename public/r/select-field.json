@@ -5,7 +5,7 @@
   "title": "Select Field",
   "description": "A component for Wandry UI",
   "dependencies": [
-    "@wandry/inertia-form"
+    "@wandry/inertia-form@^1.7.0-beta.1"
   ],
   "registryDependencies": [
     "select"

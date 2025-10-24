@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Form } from "@wandry/inertia-form";
 
-import { RadioField } from "../wandry-ui";
+import RadioField from "@/registry/wandry-ui/radio-field";
 
 export type RadioFieldDemoProps = {};
 

@@ -6,19 +6,35 @@ description: A component for Wandry UI
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/input-otp-field.json"
-  __npm__="npx shadcn@latest add https://wandry-ui.com/r/input-otp-field.json"
-  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/input-otp-field.json"
-  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/input-otp-field.json"
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/input-otp-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/input-otp-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/input-otp-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/input-otp-field.json"
 />
 
 ## Usage
 
 <ComponentPreview
+  src="/registry/examples/input-otp-field-demo.tsx"
   name="input-otp-field-demo"
   description="A component for Wandry UI"
   align="center"
 />
+
+## Usage
+
+```tsx
+import InputOtpField from "@/components/input-otp-field";
+```
+
+```tsx
+<InputOtpField
+  name="code_r"
+  label="OTP Code (with Resend)"
+  description="Enter the OTP sent to your email"
+  onResend={() => {}}
+/>
+```
 
 ## Props
 

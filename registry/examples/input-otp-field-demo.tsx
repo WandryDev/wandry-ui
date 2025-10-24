@@ -3,7 +3,7 @@ import * as React from "react";
 import { Form } from "@wandry/inertia-form";
 
 import { onResend } from "@/app/mocks";
-import { InputOtpField } from "../wandry-ui";
+import InputOtpField from "@/registry/wandry-ui/input-otp-field";
 
 export type InputOtpFieldDemoProps = {};
 

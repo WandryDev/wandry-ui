@@ -10,20 +10,16 @@ import {
 } from "@/components/ui/field";
 import { Textarea } from "@/components/ui/textarea";
 
-export type TextareaFieldProps = React.ComponentProps<"textarea"> & {
+export type TextareaFieldProps = {
   name: string;
   label?: string;
   description?: string;
   placeholder?: string;
 };
 
-const TextareaField: React.FC<TextareaFieldProps> = ({
-  name,
-  label,
-  description,
-  placeholder,
-  ...textareaProps
-}) => {
+const TextareaField: React.FC<
+  React.ComponentProps<"textarea"> & TextareaFieldProps
+> = ({ name, label, description, placeholder, ...textareaProps }) => {
   const field = useField(name, { defaultValue: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

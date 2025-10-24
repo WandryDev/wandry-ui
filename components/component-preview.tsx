@@ -4,20 +4,24 @@ import { ComponentPreviewTabs } from "@/components/component-preview-tabs";
 import { ComponentSource } from "@/components/component-source";
 import { Index } from "@/registry/__index__";
 
-export function ComponentPreview({
-  name,
-  type,
-  className,
-  align = "center",
-  ...props
-}: React.ComponentProps<"div"> & {
+type ComponentPreviewProps = React.ComponentProps<"div"> & {
+  src: string;
   name: string;
   align?: "center" | "start" | "end";
   description?: string;
   hideCode?: boolean;
   type?: "block" | "component" | "example";
   chromeLessOnMobile?: boolean;
-}) {
+};
+
+export function ComponentPreview({
+  name,
+  src,
+  type,
+  className,
+  align = "center",
+  ...props
+}: ComponentPreviewProps) {
   const Component = Index[name]?.component;
 
   if (!Component) {
@@ -61,7 +65,7 @@ export function ComponentPreview({
       className={className}
       align={align}
       component={<Component />}
-      source={<ComponentSource name={name} />}
+      source={<ComponentSource src={src} name={name} />}
       {...props}
     />
   );

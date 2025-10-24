@@ -65,6 +65,7 @@ const optionVariants = cva(
 export function ViewOptions({
   markdownUrl,
   githubUrl,
+  hasGithubLink = true,
 }: {
   /**
    * A URL to the raw Markdown/MDX content of page
@@ -75,6 +76,7 @@ export function ViewOptions({
    * Source file URL on GitHub
    */
   githubUrl: string;
+  hasGithubLink?: boolean;
 }) {
   const items = useMemo(() => {
     const fullMarkdownUrl =
@@ -200,7 +202,7 @@ export function ViewOptions({
         })}`,
         icon: <MessageCircleIcon />,
       },
-    ];
+    ].filter((_, i) => hasGithubLink || i !== 0);
   }, [githubUrl, markdownUrl]);
 
   return (

@@ -6,19 +6,30 @@ description: A component for Wandry UI
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/checkbox-field.json"
-  __npm__="npx shadcn@latest add https://wandry-ui.com/r/checkbox-field.json"
-  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/checkbox-field.json"
-  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/checkbox-field.json"
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/checkbox-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/checkbox-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/checkbox-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/checkbox-field.json"
 />
 
 ## Usage
 
 <ComponentPreview
+  src="/registry/examples/checkbox-field-demo.tsx"
   name="checkbox-field-demo"
   description="A component for Wandry UI"
   align="center"
 />
+
+## Usage
+
+```tsx
+import CheckboxField from "@/components/checkbox-field";
+```
+
+```tsx
+<CheckboxField name="is_checked" label="I agree to the terms and conditions" />
+```
 
 ## Props
 

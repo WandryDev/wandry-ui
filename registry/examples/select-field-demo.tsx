@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Form } from "@wandry/inertia-form";
 
-import { SelectField } from "../wandry-ui";
+import SelectField from "@/registry/wandry-ui/select-field";
 
 export type SelectFieldDemoProps = {};
 

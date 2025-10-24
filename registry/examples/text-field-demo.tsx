@@ -2,7 +2,7 @@ import React from "react";
 import { Form } from "@wandry/inertia-form";
 import { CreditCard } from "lucide-react";
 
-import { TextField } from "../wandry-ui";
+import TextField from "@/registry/wandry-ui/text-field";
 
 export default function TextFieldDemo() {
   return (

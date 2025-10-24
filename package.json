@@ -29,7 +29,7 @@
     "@shikijs/transformers": "^3.13.0",
     "@tailwindcss/postcss": "^4.1.14",
     "@types/mdx": "^2.0.13",
-    "@wandry/inertia-form": "^1.6.1",
+    "@wandry/inertia-form": "1.7.0-beta.1",
     "button": "^1.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

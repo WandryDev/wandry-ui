@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Form } from "@wandry/inertia-form";
 
-import { TextareaField } from "../wandry-ui";
+import TextareaField from "@/registry/wandry-ui/textarea-field";
 
 export type TextareaFieldDemoProps = {};
 

@@ -5,7 +5,7 @@
   "title": "TextField",
   "description": "Controlled text input component with label and error message support.",
   "dependencies": [
-    "@wandry/inertia-form"
+    "@wandry/inertia-form@^1.7.0-beta.1"
   ],
   "registryDependencies": [
     "input-group",

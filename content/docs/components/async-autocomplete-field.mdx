@@ -6,19 +6,39 @@ description: A component for Wandry UI
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/async-autocomplete-field.json"
-  __npm__="npx shadcn@latest add https://wandry-ui.com/r/async-autocomplete-field.json"
-  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/async-autocomplete-field.json"
-  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/async-autocomplete-field.json"
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/async-autocomplete-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/async-autocomplete-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/async-autocomplete-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/async-autocomplete-field.json"
 />
 
-## Usage
+## Example
 
 <ComponentPreview
+  src="/registry/examples/async-autocomplete-field-demo.tsx"
   name="async-autocomplete-field-demo"
   description="A component for Wandry UI"
   align="center"
 />
+
+## Usage
+
+```tsx
+import AsyncAutocompleteField from "@/components/async-autocomplete-field";
+```
+
+```tsx
+<AsyncAutocompleteField
+  label="Frameworks"
+  placeholder="Select a framework"
+  description="Start typing to search for a framework"
+  name="frameworks"
+  loadOptions={(inputValue: string) => [
+    { label: "React", value: "react" },
+    { label: "Vue", value: "vue" },
+  ]} // Replace with your async logic
+/>
+```
 
 ## Props
 
@@ -26,3 +46,4 @@ description: A component for Wandry UI
   path="registry/wandry-ui/async-autocomplete-field.tsx"
   name="AsyncAutocompleteFieldProps"
 />
+````

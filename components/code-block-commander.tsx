@@ -51,7 +51,7 @@ export function CodeBlockCommand({
   }, [packageManager, tabs]);
 
   return (
-    <div className="overflow-x-auto relative px-2 py-1 rounded-md bg-input mt-4">
+    <div className="overflow-x-auto relative px-2 py-1 rounded-md bg-muted mt-4">
       <Tabs
         className="gap-0"
         defaultValue="pnpm"

@@ -6,19 +6,35 @@ description: Text input component with support for labels, descriptions, and add
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://wandry-ui.com/r/text-field.json"
-  __npm__="npx shadcn@latest add https://wandry-ui.com/r/text-field.json"
-  __bun__="bunx --bun shadcn@latest add https://wandry-ui.com/r/text-field.json"
-  __yarn__="yarn dlx shadcn@latest add https://wandry-ui.com/r/text-field.json"
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/text-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/text-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/text-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/text-field.json"
 />
 
 ## Usage
 
 <ComponentPreview
+  src="/registry/examples/text-field-demo.tsx"
   name="text-field-demo"
   description="A text input field with a label and description"
   align="center"
 />
+
+## Usage
+
+```tsx
+import TextField from "@/components/text-field";
+```
+
+```tsx
+<TextField
+  name="card"
+  label="Card Number"
+  placeholder="1234 5678 9101 1213"
+  description="Enter your 16-digit card number"
+/>
+```
 
 ## Props
 

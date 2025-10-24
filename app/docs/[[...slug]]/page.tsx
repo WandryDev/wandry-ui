@@ -10,11 +10,14 @@ import { getMDXComponents } from "@/mdx-components";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { LLMCopyButton, ViewOptions } from "@/components/page-actions";
+import { githubLink } from "@/lib/site-config";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
+
+  const isComponentPage = params.slug?.[0] === "components";
 
   const MDX = page.data.body;
 
@@ -26,8 +29,11 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
         <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
           <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
           <ViewOptions
+            hasGithubLink={isComponentPage}
             markdownUrl={`${page.url}.mdx`}
-            githubUrl={`https://github.com/WandryDev/wandry-ui/blob/main/content/docs/${page.path}`}
+            githubUrl={`${githubLink}/blob/main/registry/wandry-ui/${params.slug?.at(
+              1
+            )}.tsx`}
           />
         </div>
       </div>

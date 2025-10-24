@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Form } from "@wandry/inertia-form";
 
-import { CheckboxField } from "../wandry-ui";
+import CheckboxField from "@/registry/wandry-ui/checkbox-field";
 
 export type CheckboxFieldDemoProps = {};
 

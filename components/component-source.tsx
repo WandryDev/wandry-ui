@@ -30,14 +30,12 @@ export async function ComponentSource({
 
   let code: string | undefined;
 
-  if (name) {
-    const item = await getRegistryItem(name);
-    code = item?.files?.[0]?.content;
-  }
-
   if (src) {
     const file = await fs.readFile(path.join(process.cwd(), src), "utf-8");
     code = file;
+  } else {
+    const item = await getRegistryItem(name!);
+    code = item?.files?.[0]?.content;
   }
 
   if (!code) {
@@ -46,7 +44,7 @@ export async function ComponentSource({
 
   // Fix imports.
   // Replace @/registry/new-york-v4/ with @/components/.
-  code = code.replaceAll("@/registry/new-york-v4/", "@/components/");
+  code = code.replaceAll("@/registry/wandry-ui", "@/components");
 
   // Replace export default with export.
   code = code.replaceAll("export default", "export");
