@@ -1,0 +1,61 @@
+---
+title: Choisebox Field
+description: A component for Wandry UI
+---
+
+## Installation
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/choisebox-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/choisebox-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/choisebox-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/choisebox-field.json"
+/>
+
+## Example
+
+<ComponentPreview
+  src="/registry/examples/choisebox-field-demo.tsx"
+  name="choisebox-field-demo"
+  description="A component for Wandry UI"
+  align="center"
+/>
+
+## Usage
+
+```tsx
+import ChoiseboxField from "@/components/choisebox-field";
+```
+
+```tsx
+<ChoiseboxField
+  name="compute-environment"
+  label="Compute Environment"
+  description="Select the compute environment for your cluster."
+  options={[
+    {
+      label: "Environment A",
+      description: "This is the description for Environment A.",
+      value: "env-a",
+    },
+    {
+      label: "Environment B",
+      description: "This is the description for Environment B.",
+      value: "env-b",
+    },
+    {
+      label: "Environment C",
+      description: "This is the description for Environment C.",
+      value: "env-c",
+    },
+  ]}
+  defaultValue="env-b"
+/>
+```
+
+## Props
+
+<AutoTypeTable
+  path="registry/wandry-ui/choisebox-field.tsx"
+  name="ChoiseboxFieldProps"
+/>

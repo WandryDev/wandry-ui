@@ -1,0 +1,46 @@
+---
+title: Dropzone Field
+description: A component for Wandry UI
+---
+
+## Installation
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/dropzone-field.json"
+  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/dropzone-field.json"
+  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/dropzone-field.json"
+  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/dropzone-field.json"
+/>
+
+## Example
+
+<ComponentPreview
+  src="/registry/examples/dropzone-field-demo.tsx"
+  name="dropzone-field-demo"
+  description="A component for Wandry UI"
+  align="center"
+/>
+
+## Usage
+
+```tsx
+import DropzoneField from "@/components/dropzone-field";
+```
+
+```tsx
+<DropzoneField
+  name="files"
+  label="Upload Files"
+  description="Drag and drop files here or click to select files."
+  accept={{ "image/*": [], "application/pdf": [] }}
+  maxFiles={5}
+  maxSize={5 * 1024 * 1024} // 5 MB
+/>
+```
+
+## Props
+
+<AutoTypeTable
+  path="registry/wandry-ui/dropzone-field.tsx"
+  name="DropzoneFieldProps"
+/>

@@ -12,3 +12,5 @@ export { default as TimepickerField } from "./timepicker-field";
 export { default as DatepickerRangeField } from "./datepicker-range-field";
 export { default as SliderField } from "./slider-field";
 export { default as FileField } from "./file-field";
+export { default as ChoiseboxField } from "./choisebox-field";
+export { default as DropzoneField } from "./dropzone-field";

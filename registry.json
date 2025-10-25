@@ -276,6 +276,45 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "choisebox-field",
+      "title": "Choisebox Field",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "field",
+        "radio-group"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/choisebox-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dropzone-field",
+      "title": "Dropzone Field",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form",
+        "react-dropzone"
+      ],
+      "registryDependencies": [
+        "button",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/dropzone-field.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
