@@ -3,6 +3,7 @@ import { RootProvider } from "fumadocs-ui/provider/next";
 import { Inter } from "next/font/google";
 
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { ThemeProvider } from "next-themes";
 import { SiteHeader } from "@/components/site-nav";
@@ -25,6 +26,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
           <SiteFooter />
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
