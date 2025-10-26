@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 
-import { SignupForm } from "@/registry/wandry-ui/blocks/signup-05/components/singup-form";
+import { SignupForm } from "@/registry/wandry-ui/blocks/signup-05/components/signup-form";
 
 const Page = () => {
   return (
