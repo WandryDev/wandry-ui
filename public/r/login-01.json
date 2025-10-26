@@ -17,7 +17,7 @@
       "path": "registry/wandry-ui/blocks/login-01/page.tsx",
       "content": "import React from \"react\";\nimport { GalleryVerticalEnd } from \"lucide-react\";\nimport { LoginForm } from \"@/registry/wandry-ui/blocks/login-01/components/login-form\";\n\nexport const Page: React.FC = () => {\n  return (\n    <div className=\"bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10\">\n      <div className=\"flex w-full max-w-sm flex-col gap-6\">\n        <a href=\"#\" className=\"flex items-center gap-2 self-center font-medium\">\n          <div className=\"bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md\">\n            <GalleryVerticalEnd className=\"size-4\" />\n          </div>\n          Acme Inc.\n        </a>\n        <LoginForm />\n      </div>\n    </div>\n  );\n};\n",
       "type": "registry:page",
-      "target": "app/login/page.tsx"
+      "target": "resource/login/page.tsx"
     },
     {
       "path": "registry/wandry-ui/blocks/login-01/components/login-form.tsx",

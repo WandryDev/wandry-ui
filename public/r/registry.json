@@ -242,7 +242,7 @@
         {
           "path": "registry/wandry-ui/blocks/login-01/page.tsx",
           "type": "registry:page",
-          "target": "app/login/page.tsx"
+          "target": "resource/login/page.tsx"
         },
         {
           "path": "registry/wandry-ui/blocks/login-01/components/login-form.tsx",
@@ -351,7 +351,8 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/signup-02/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "signup-02.txt"
         }
       ]
     },
