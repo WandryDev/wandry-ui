@@ -352,7 +352,7 @@
         {
           "path": "registry/wandry-ui/blocks/signup-02/page.tsx",
           "type": "registry:block",
-          "target": "signup-02.txt"
+          "target": "components/signup-02.tsx"
         }
       ]
     },
