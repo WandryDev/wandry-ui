@@ -6,6 +6,8 @@ import { GitHubLink } from "@/components/github-link";
 import { MainNav } from "@/components/main-nav";
 
 import { motion } from "motion/react";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { useHideLayout } from "@/hooks/use-hide-layout";
 
 const links = [
   {
@@ -16,9 +18,19 @@ const links = [
     href: "/docs/components",
     label: "Components",
   },
+  {
+    href: "/blocks",
+    label: "Blocks",
+  },
 ];
 
 export function SiteHeader() {
+  const isHideHeader = useHideLayout();
+
+  if (isHideHeader) {
+    return null;
+  }
+
   return (
     <motion.div
       animate={{

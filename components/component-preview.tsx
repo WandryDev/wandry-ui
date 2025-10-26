@@ -5,7 +5,7 @@ import { ComponentSource } from "@/components/component-source";
 import { Index } from "@/registry/__index__";
 
 type ComponentPreviewProps = React.ComponentProps<"div"> & {
-  src: string;
+  src?: string;
   name: string;
   align?: "center" | "start" | "end";
   description?: string;

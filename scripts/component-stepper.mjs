@@ -58,6 +58,7 @@ const registryTypes = [
 ];
 
 const componentPath = "registry/wandry-ui/";
+const blockPath = "registry/wandry-ui/blocks/";
 
 export const getComponentStepperInputs = async () => {
   try {
@@ -87,15 +88,7 @@ export const getComponentStepperInputs = async () => {
       message: "Enter registry dependencies (space separated)",
     });
 
-    const registryType = await select({
-      message: "Select registry type",
-      choices: registryTypes.map((type) => ({
-        name: type.name,
-        value: type.value,
-        description: type.description,
-      })),
-      default: "registry:component",
-    });
+    const registryType = "registry:component";
 
     const isRightComponentPath = await confirm({
       message: `Is this the correct component path? ${componentFilePath}`,
@@ -113,7 +106,7 @@ export const getComponentStepperInputs = async () => {
       .filter((dep) => Boolean(dep));
 
     return {
-      componentName,
+      name: componentName,
       componentFilePath,
       title,
       description,
@@ -122,6 +115,61 @@ export const getComponentStepperInputs = async () => {
       registryType,
       isRightComponentPath,
       needComponentDoc,
+    };
+  } catch (error) {
+    console.error("Error getting component stepper inputs:", error);
+  }
+};
+
+export const getBlockStepperInputs = async () => {
+  try {
+    const blockName = await input({
+      message: "Enter block name (ex: login-01)",
+      required: true,
+    });
+
+    const blockFilePath = [blockPath, blockName, "/", "page.tsx"].join("");
+
+    const title = await input({
+      message: "Enter title",
+      default: defaultTitle,
+    });
+
+    const description = await input({
+      message: "Enter description",
+      default: defaultDescription,
+    });
+
+    const dependencies = await input({
+      message: "Enter dependencies (space separated)",
+      default: defaultComponentDepencies,
+    });
+
+    const registryDependencies = await input({
+      message: "Enter registry dependencies (space separated)",
+    });
+
+    const registryType = "registry:block";
+
+    const isRightComponentPath = await confirm({
+      message: `Is this the correct component path? ${blockFilePath}`,
+      default: true,
+    });
+
+    const normilizedRegistryDependencies = registryDependencies
+      .split(" ")
+      .map((dep) => dep.trim())
+      .filter((dep) => Boolean(dep));
+
+    return {
+      name: blockName,
+      blockFilePath,
+      title,
+      description,
+      dependencies,
+      registryDependencies: normilizedRegistryDependencies,
+      registryType,
+      isRightComponentPath,
     };
   } catch (error) {
     console.error("Error getting component stepper inputs:", error);

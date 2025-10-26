@@ -7,11 +7,11 @@ import * as React from "react";
 
 import regisry from "@/registry.json";
 
-const getRegistryItemConfig = (item) => {
+const getRegistryComponentItemConfig = (item) => {
   return {
     [item.name]: {
       name: item.name,
-      description: "",
+      description: item.description || "",
       type: "registry:ui",
       registryDependencies: undefined,
       files: item.files,
@@ -48,6 +48,62 @@ const getRegistryItemConfig = (item) => {
   };
 };
 
-export const Index: Record<string, any> = regisry.items.reduce((acc, item) => {
-  return { ...acc, ...getRegistryItemConfig(item) };
-}, {});
+const getRegistryBlockItemConfig = (item) => {
+  return {
+    [item.name]: {
+      name: item.name,
+      description: item.description || "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: item.files,
+      component: React.lazy(async () => {
+        const mod = await import(
+          `@/registry/wandry-ui/blocks/${item.name}/page.tsx`
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === "function" || typeof mod[key] === "object"
+          ) || item.name;
+        return { default: mod.default || mod[exportName] };
+      }),
+      categories: undefined,
+      meta: undefined,
+    },
+    [`${item.name}-demo`]: {
+      name: `${item.name}-demo`,
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: item.files,
+      component: React.lazy(async () => {
+        const mod = await import(`@/registry/examples/${item.name}-demo.tsx`);
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === "function" || typeof mod[key] === "object"
+          ) || item.name;
+        return { default: mod.default || mod[exportName] };
+      }),
+      categories: undefined,
+      meta: undefined,
+    },
+  };
+};
+
+const components = regisry.items
+  .filter((item) => item.type === "registry:component")
+  .reduce((acc, item) => {
+    return { ...acc, ...getRegistryComponentItemConfig(item) };
+  }, {});
+
+const blocks = regisry.items
+  .filter((item) => item.type === "registry:block")
+  .reduce((acc, item) => {
+    return { ...acc, ...getRegistryBlockItemConfig(item) };
+  }, {});
+
+export const Index: Record<string, any> = {
+  ...components,
+  ...blocks,
+};

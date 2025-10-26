@@ -1,6 +1,15 @@
+"use client";
+
+import { useHideLayout } from "@/hooks/use-hide-layout";
 import { githubLink } from "@/lib/site-config";
 
 export function SiteFooter() {
+  const isHideHeader = useHideLayout();
+
+  if (isHideHeader) {
+    return null;
+  }
+
   return (
     <footer className="group-has-[.section-soft]/body:bg-surface/40 3xl:fixed:bg-transparent group-has-[.docs-nav]/body:pb-20 group-has-[.docs-nav]/body:sm:pb-0 dark:bg-transparent py-10">
       <div className="container-wrapper px-4 xl:px-6">

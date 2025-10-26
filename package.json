@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "registry:build": "shadcn build",
-    "registry:add": "node ./scripts/add-component.mjs",
+    "registry:component": "node ./scripts/add-component.mjs",
+    "registry:block": "node ./scripts/add-block.mjs",
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {

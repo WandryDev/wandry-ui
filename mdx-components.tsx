@@ -15,7 +15,6 @@ import { CodeBlockCommand } from "@/components/code-block-commander";
 import { ComponentsGrid } from "./components/components-grid";
 
 import * as WandryUI from "@/registry/wandry-ui";
-import KiboUiForm from "./registry/blocks/kibo-ui-form";
 
 import { CopyButton } from "./components/copy-button";
 
@@ -24,7 +23,6 @@ const generator = createGenerator();
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...defaultComponents,
-    KiboUiForm,
     h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
       <h1
         className={cn(

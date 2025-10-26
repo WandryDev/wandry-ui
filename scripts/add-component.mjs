@@ -34,11 +34,9 @@ try {
 
   const { registry, item } = addRegistryItem(answers);
 
-  const componentTemplate = getComponentTemplate(answers.componentName);
-  const componentDemo = addComponentDemo(answers.componentName);
-  const componentExportTemplate = getComponentExportTemplate(
-    answers.componentName
-  );
+  const componentTemplate = getComponentTemplate(answers.name);
+  const componentDemo = addComponentDemo(answers.name);
+  const componentExportTemplate = getComponentExportTemplate(answers.name);
 
   fs.appendFileSync(registryComponentsIndexPath, componentExportTemplate);
   fs.writeFileSync(componentDemo.path, componentDemo.template);
@@ -54,14 +52,12 @@ try {
   console.log(`- Create component at ${answers.componentFilePath}`);
   console.log(`- Create demo at ${componentDemo.path}`);
   if (answers.needComponentDoc) {
-    console.log(
-      `- Create doc at content/docs/components/${answers.componentName}.mdx`
-    );
+    console.log(`- Create doc at content/docs/components/${answers.name}.mdx`);
   }
   console.log(`- Update registry at ${registryPath}`);
   console.log(`- Update wandry-ui exports at ${registryComponentsIndexPath}`);
 
-  console.log(`✅ Component ${answers.componentName} created successfully!`);
+  console.log(`✅ Component ${answers.name} created successfully!`);
 
   await installRegistryDeps(answers);
 } catch (error) {
