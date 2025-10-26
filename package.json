@@ -33,7 +33,7 @@
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "@wandry/inertia-form": "^1.7.0",
+    "@wandry/inertia-form": "^1.8.1",
     "button": "^1.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

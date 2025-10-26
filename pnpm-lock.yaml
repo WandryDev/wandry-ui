@@ -70,8 +70,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(next@15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@wandry/inertia-form':
-        specifier: ^1.7.0
-        version: 1.7.0(@inertiajs/core@2.2.11)(@inertiajs/react@2.2.11(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react@19.1.0)
+        specifier: ^1.8.1
+        version: 1.8.1(@inertiajs/core@2.2.11)(@inertiajs/react@2.2.11(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)
       button:
         specifier: ^1.1.1
         version: 1.1.1
@@ -2127,13 +2127,14 @@ packages:
       vue-router:
         optional: true
 
-  '@wandry/inertia-form@1.7.0':
-    resolution: {integrity: sha512-Ifs7uUGZT6UH3NSc3HwPOSnmotHMVoU5R4WeOj420VpXsnw5YN+fMJ4kJzH8kmtbl/XiHMzWiaUnpM4SG+ru1Q==}
+  '@wandry/inertia-form@1.8.1':
+    resolution: {integrity: sha512-kQajySihRmA3nNMtx1VVfz2cs38Vw+Ib/Ln39lhH3S7aak6Aa6ukwNKuzUSgfuhcPmI8IqQ0VmnjyRZ1ogN5dA==}
     peerDependencies:
       '@inertiajs/core': '>=1'
       '@inertiajs/react': '>=1'
       '@types/react': 19.1.2
       '@types/react-dom': 19.1.2
+      clsx: '>=1'
       react: '>=17'
 
   '@webgpu/types@0.1.66':
@@ -6831,12 +6832,13 @@ snapshots:
       next: 15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
-  '@wandry/inertia-form@1.7.0(@inertiajs/core@2.2.11)(@inertiajs/react@2.2.11(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react@19.1.0)':
+  '@wandry/inertia-form@1.8.1(@inertiajs/core@2.2.11)(@inertiajs/react@2.2.11(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)':
     dependencies:
       '@inertiajs/core': 2.2.11
       '@inertiajs/react': 2.2.11(react@19.1.0)
       '@types/react': 19.1.2
       '@types/react-dom': 19.1.2(@types/react@19.1.2)
+      clsx: 2.1.1
       react: 19.1.0
       yup: 1.7.1
       zod: 4.1.12

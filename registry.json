@@ -420,6 +420,103 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "signup-01",
+      "title": "Wandry UI Component",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "text-field",
+        "password-field"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/signup-01/page.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "signup-02",
+      "title": "Wandry UI Component",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "text-field",
+        "password-field",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/signup-02/page.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "signup-03",
+      "title": "Wandry UI Component",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "text-field",
+        "password-field",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/signup-03/page.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "signup-04",
+      "title": "Wandry UI Component",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "text-field",
+        "password-field"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/signup-04/page.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "signup-05",
+      "title": "Wandry UI Component",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "text-field",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/signup-05/page.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }

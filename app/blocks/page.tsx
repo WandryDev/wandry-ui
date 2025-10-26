@@ -31,7 +31,7 @@ export default async function BlocksPage() {
             <TabsTrigger
               key={category}
               value={category}
-              className="capitalize text-xl !bg-transparent data-[state=active]:bg-transparent dark:data-[state=active]:text-foreground dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30  data-[state=active]:shadow-none text-foreground dark:text-muted-foreground"
+              className="capitalize transition-all data-[state=active]:text-xl data-[state=active]:opacity-100 text-lg opacity-50 !bg-transparent data-[state=active]:bg-transparent dark:data-[state=active]:text-foreground dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30  data-[state=active]:shadow-none text-foreground dark:text-muted-foreground"
             >
               {category}
             </TabsTrigger>
