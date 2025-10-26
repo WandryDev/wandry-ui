@@ -114,8 +114,6 @@ function BlockViewerToolbar() {
   const { setView, view, item } = useBlockViewer();
   const { copyToClipboard, isCopied } = useCopyToClipboard();
 
-  console.log("item", item);
-
   return (
     <div className="hidden w-full items-center gap-2 pl-2 md:pr-6 lg:flex">
       <Tabs
@@ -146,7 +144,6 @@ function BlockViewerToolbar() {
           {isCopied ? <Check /> : <Terminal />}
           <span>npx shadcn add @wandry-ui/{item.name}</span>
         </Button>
-        <Separator orientation="vertical" className="mx-1 !h-4" />
       </div>
     </div>
   );

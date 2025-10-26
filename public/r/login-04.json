@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-04",
+  "type": "registry:block",
+  "title": "Wandry UI Component",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "@wandry-ui/text-field",
+    "@wandry-ui/password-field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/blocks/login-04/page.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { GalleryVerticalEnd } from \"lucide-react\";\nimport { LoginForm } from \"@/registry/wandry-ui/blocks/login-04/components/login-form\";\n\nconst Page = () => {\n  return (\n    <div className=\"bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10\">\n      <div className=\"flex w-full max-w-sm flex-col gap-6\">\n        <a href=\"#\" className=\"flex items-center gap-2 self-center font-medium\">\n          <div className=\"bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md\">\n            <GalleryVerticalEnd className=\"size-4\" />\n          </div>\n          Acme Inc.\n        </a>\n        <LoginForm />\n      </div>\n    </div>\n  );\n};\n\nexport default Page;\n",
+      "type": "registry:block"
+    }
+  ]
+}

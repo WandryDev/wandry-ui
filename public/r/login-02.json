@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-02",
+  "type": "registry:block",
+  "title": "Wandry UI Component",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "@wandry-ui/text-field",
+    "@wandry-ui/password-field"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/blocks/login-02/page.tsx",
+      "content": "\"use client\";\nimport * as React from \"react\";\nimport { LoginForm } from \"./components/login-form\";\n\nconst Page = () => {\n  return (\n    <div className=\"bg-muted flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-sm\">\n        <LoginForm />\n      </div>\n    </div>\n  );\n};\n\nexport default Page;\n",
+      "type": "registry:block"
+    }
+  ]
+}

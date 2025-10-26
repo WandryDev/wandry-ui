@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-03",
+  "type": "registry:block",
+  "title": "Wandry UI Component",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "@wandry-ui/text-field",
+    "@wandry-ui/password-field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/blocks/login-03/page.tsx",
+      "content": "\"use client\";\nimport * as React from \"react\";\n\nimport { GalleryVerticalEnd } from \"lucide-react\";\nimport { LoginForm } from \"@/registry/wandry-ui/blocks/login-03/components/login-form\";\n\nconst Page = () => {\n  return (\n    <div className=\"grid min-h-svh lg:grid-cols-2\">\n      <div className=\"flex flex-col gap-4 p-6 md:p-10\">\n        <div className=\"flex justify-center gap-2 md:justify-start\">\n          <a href=\"#\" className=\"flex items-center gap-2 font-medium\">\n            <div className=\"bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md\">\n              <GalleryVerticalEnd className=\"size-4\" />\n            </div>\n            Acme Inc.\n          </a>\n        </div>\n        <div className=\"flex flex-1 items-center justify-center\">\n          <div className=\"w-full max-w-xs\">\n            <LoginForm />\n          </div>\n        </div>\n      </div>\n      <div className=\"bg-muted relative hidden lg:block\">\n        <img\n          src=\"/images/placeholder.png\"\n          alt=\"Image\"\n          className=\"absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale\"\n        />\n      </div>\n    </div>\n  );\n};\n\nexport default Page;\n",
+      "type": "registry:block"
+    }
+  ]
+}
