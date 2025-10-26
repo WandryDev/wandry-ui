@@ -6,7 +6,6 @@ import { GitHubLink } from "@/components/github-link";
 import { MainNav } from "@/components/main-nav";
 
 import { motion } from "motion/react";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { useHideLayout } from "@/hooks/use-hide-layout";
 
 const links = [
