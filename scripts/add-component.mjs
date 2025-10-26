@@ -26,7 +26,7 @@ try {
     console.log("Aborting...");
     process.exit(0);
   } else {
-    if (fs.existsSync(answers.componentFilePath)) {
+    if (fs.existsSync(answers.filePath)) {
       console.error("Component path exists.");
       process.exit(0);
     }
@@ -40,7 +40,7 @@ try {
 
   fs.appendFileSync(registryComponentsIndexPath, componentExportTemplate);
   fs.writeFileSync(componentDemo.path, componentDemo.template);
-  fs.writeFileSync(answers.componentFilePath, componentTemplate);
+  fs.writeFileSync(answers.filePath, componentTemplate);
   fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
 
   if (answers.needComponentDoc) {
@@ -49,7 +49,7 @@ try {
   }
 
   console.log("\n");
-  console.log(`- Create component at ${answers.componentFilePath}`);
+  console.log(`- Create component at ${answers.filePath}`);
   console.log(`- Create demo at ${componentDemo.path}`);
   if (answers.needComponentDoc) {
     console.log(`- Create doc at content/docs/components/${answers.name}.mdx`);

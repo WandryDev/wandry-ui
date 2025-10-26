@@ -13,7 +13,7 @@ export const addRegistryItem = (answers) => {
     description: answers.description,
     dependencies: answers.dependencies.split(" "),
     registryDependencies: answers.registryDependencies,
-    files: [{ path: answers.componentFilePath, type: answers.registryType }],
+    files: [{ path: answers.filePath, type: answers.registryType }],
   };
 
   registry.items.push(newRegistryItem);

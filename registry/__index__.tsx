@@ -53,7 +53,7 @@ const getRegistryBlockItemConfig = (item) => {
     [item.name]: {
       name: item.name,
       description: item.description || "",
-      type: "registry:ui",
+      type: "registry:block",
       registryDependencies: undefined,
       files: item.files,
       component: React.lazy(async () => {

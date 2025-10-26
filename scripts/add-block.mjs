@@ -14,7 +14,7 @@ try {
     console.log("Aborting...");
     process.exit(0);
   } else {
-    if (fs.existsSync(answers.componentFilePath)) {
+    if (fs.existsSync(answers.filePath)) {
       console.error("Component path exists.");
       process.exit(0);
     }
@@ -23,12 +23,12 @@ try {
   const { registry } = addRegistryItem(answers);
   const blockTemplate = getBlockTemplate(answers.blockName);
 
-  fs.mkdirSync(path.dirname(answers.name));
-  fs.writeFileSync(answers.blockFilePath, blockTemplate);
-  fs.writeSync(registryPath, JSON.stringify(registry, null, 2));
+  fs.mkdirSync(answers.blockDirPath, { recursive: true });
+  fs.writeFileSync(answers.filePath, blockTemplate);
+  fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
 
   console.log("\n");
-  console.log(`- Create block at ${answers.blockFilePath}`);
+  console.log(`- Create block at ${answers.filePath}`);
   console.log(`✅ Block ${answers.blockName} created successfully!`);
 } catch (error) {
   if (error instanceof Error && error.name === "ExitPromptError") {

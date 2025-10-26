@@ -212,3 +212,7 @@ export function createFileTreeForRegistryItemFiles(
 
   return root;
 }
+
+export const getRegistryBlocks = () => {
+  return Object.values(Index).filter((item) => item.type === "registry:block");
+};

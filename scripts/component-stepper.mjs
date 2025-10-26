@@ -107,7 +107,7 @@ export const getComponentStepperInputs = async () => {
 
     return {
       name: componentName,
-      componentFilePath,
+      filePath: componentFilePath,
       title,
       description,
       dependencies,
@@ -128,7 +128,8 @@ export const getBlockStepperInputs = async () => {
       required: true,
     });
 
-    const blockFilePath = [blockPath, blockName, "/", "page.tsx"].join("");
+    const blockDirPath = [blockPath, blockName].join("");
+    const blockFilePath = [blockDirPath, "/", "page.tsx"].join("");
 
     const title = await input({
       message: "Enter title",
@@ -163,7 +164,8 @@ export const getBlockStepperInputs = async () => {
 
     return {
       name: blockName,
-      blockFilePath,
+      blockDirPath,
+      filePath: blockFilePath,
       title,
       description,
       dependencies,
