@@ -351,13 +351,11 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/signup-02/page.tsx",
-          "type": "registry:block",
-          "target": "components/signup-02/page.tsx"
+          "type": "registry:component"
         },
         {
           "path": "registry/wandry-ui/blocks/signup-02/components/signup-form.tsx",
-          "type": "registry:block",
-          "target": "components/signup-02/components/signup-form.tsx"
+          "type": "registry:component"
         }
       ]
     },
