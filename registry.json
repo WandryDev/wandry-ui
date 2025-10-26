@@ -242,11 +242,12 @@
         {
           "path": "registry/wandry-ui/blocks/login-01/page.tsx",
           "type": "registry:page",
-          "target": "resource/login/page.tsx"
+          "target": "resources/js/Pages/login-01.tsx"
         },
         {
           "path": "registry/wandry-ui/blocks/login-01/components/login-form.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "resources/js/components/login-01/login-form.tsx"
         }
       ]
     },
@@ -263,7 +264,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/login-02/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "resources/js/Pages/login-02.tsx"
+        },
+        {
+          "path": "registry/wandry-ui/blocks/login-02/components/login-form.tsx",
+          "type": "registry:block",
+          "target": "resources/js/components/login-02/login-form.tsx"
         }
       ]
     },
@@ -281,7 +288,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/login-03/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "resources/js/Pages/login-03.tsx"
+        },
+        {
+          "path": "registry/wandry-ui/blocks/login-03/components/login-form.tsx",
+          "type": "registry:block",
+          "target": "resources/js/components/login-03/login-form.tsx"
         }
       ]
     },
@@ -299,7 +312,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/login-04/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "resources/js/Pages/login-04.tsx"
+        },
+        {
+          "path": "registry/wandry-ui/blocks/login-04/components/login-form.tsx",
+          "type": "registry:block",
+          "target": "resources/js/components/login-04/login-form.tsx"
         }
       ]
     },
@@ -316,7 +335,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/login-05/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "resources/js/Pages/login-05.tsx"
+        },
+        {
+          "path": "registry/wandry-ui/blocks/login-05/components/login-form.tsx",
+          "type": "registry:block",
+          "target": "resources/js/components/login-05/login-form.tsx"
         }
       ]
     },
@@ -333,7 +358,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/signup-01/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "resources/js/Pages/signup-01.tsx"
+        },
+        {
+          "path": "registry/wandry-ui/blocks/signup-01/components/signup-form.tsx",
+          "type": "registry:block",
+          "target": "resources/js/components/signup-01/signup-form.tsx"
         }
       ]
     },
@@ -351,11 +382,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/signup-02/page.tsx",
-          "type": "registry:component"
+          "type": "registry:page",
+          "target": "resources/js/Pages/signup-02.tsx"
         },
         {
           "path": "registry/wandry-ui/blocks/signup-02/components/signup-form.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "resources/js/components/signup-02/signup-form.tsx"
         }
       ]
     },
@@ -373,7 +406,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/signup-03/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "resources/js/Pages/signup-03.tsx"
+        },
+        {
+          "path": "registry/wandry-ui/blocks/signup-03/components/signup-form.tsx",
+          "type": "registry:block",
+          "target": "resources/js/components/signup-03/signup-form.tsx"
         }
       ]
     },
@@ -390,7 +429,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/signup-04/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "resources/js/Pages/signup-04.tsx"
+        },
+        {
+          "path": "registry/wandry-ui/blocks/signup-04/components/signup-form.tsx",
+          "type": "registry:block",
+          "target": "resources/js/components/signup-04/signup-form.tsx"
         }
       ]
     },
@@ -404,7 +449,13 @@
       "files": [
         {
           "path": "registry/wandry-ui/blocks/signup-05/page.tsx",
-          "type": "registry:block"
+          "type": "registry:block",
+          "target": "resources/js/Pages/signup-05.tsx"
+        },
+        {
+          "path": "registry/wandry-ui/blocks/signup-05/components/signup-form.tsx",
+          "type": "registry:block",
+          "target": "resources/js/components/signup-05/signup-form.tsx"
         }
       ]
     }

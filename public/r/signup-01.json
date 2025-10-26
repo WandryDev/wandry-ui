@@ -15,7 +15,14 @@
     {
       "path": "registry/wandry-ui/blocks/signup-01/page.tsx",
       "content": "\"use client\";\nimport * as React from \"react\";\nimport { SignupForm } from \"@/registry/wandry-ui/blocks/signup-01/components/signup-form\";\n\nconst Page = () => {\n  return (\n    <div className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-sm\">\n        <SignupForm />\n      </div>\n    </div>\n  );\n};\n\nexport default Page;\n",
-      "type": "registry:block"
+      "type": "registry:block",
+      "target": "resources/js/Pages/signup-01.tsx"
+    },
+    {
+      "path": "registry/wandry-ui/blocks/signup-01/components/signup-form.tsx",
+      "content": "import { Form } from \"@wandry/inertia-form\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\nimport { Field, FieldDescription, FieldGroup } from \"@/components/ui/field\";\n\nimport PasswordField from \"@/registry/wandry-ui/password-field\";\nimport TextField from \"@/registry/wandry-ui/text-field\";\n\nexport function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {\n  return (\n    <Card {...props}>\n      <CardHeader>\n        <CardTitle>Create an account</CardTitle>\n        <CardDescription>\n          Enter your information below to create your account\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <Form action=\"#\">\n          <FieldGroup>\n            <TextField name=\"full-name\" label=\"Full Name\" />\n            <TextField\n              name=\"email\"\n              label=\"Email\"\n              type=\"email\"\n              placeholder=\"m@example.com\"\n            />\n            <PasswordField\n              name=\"password\"\n              label=\"Password\"\n              description=\"Must be at least 8 characters long.\"\n            />\n            <PasswordField\n              name=\"confirm-password\"\n              label=\"Confirm Password\"\n              description=\"Please confirm your password.\"\n            />\n            <FieldGroup>\n              <Field>\n                <Button type=\"submit\">Create Account</Button>\n                <Button variant=\"outline\" type=\"button\">\n                  Sign up with Google\n                </Button>\n                <FieldDescription className=\"px-6 text-center\">\n                  Already have an account? <a href=\"#\">Sign in</a>\n                </FieldDescription>\n              </Field>\n            </FieldGroup>\n          </FieldGroup>\n        </Form>\n      </CardContent>\n    </Card>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "resources/js/components/signup-01/signup-form.tsx"
     }
   ]
 }

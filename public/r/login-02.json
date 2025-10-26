@@ -15,7 +15,14 @@
     {
       "path": "registry/wandry-ui/blocks/login-02/page.tsx",
       "content": "\"use client\";\nimport * as React from \"react\";\nimport { LoginForm } from \"./components/login-form\";\n\nconst Page = () => {\n  return (\n    <div className=\"bg-muted flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-sm\">\n        <LoginForm />\n      </div>\n    </div>\n  );\n};\n\nexport default Page;\n",
-      "type": "registry:block"
+      "type": "registry:block",
+      "target": "resources/js/Pages/login-02.tsx"
+    },
+    {
+      "path": "registry/wandry-ui/blocks/login-02/components/login-form.tsx",
+      "content": "import { Form } from \"@wandry/inertia-form\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\nimport { Field, FieldDescription, FieldGroup } from \"@/components/ui/field\";\n\nimport TextField from \"@/registry/wandry-ui/text-field\";\nimport PasswordField from \"@/registry/wandry-ui/password-field\";\n\nexport function LoginForm({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div className={cn(\"flex flex-col gap-6\", className)} {...props}>\n      <Card>\n        <CardHeader>\n          <CardTitle>Login to your account</CardTitle>\n          <CardDescription>\n            Enter your email below to login to your account\n          </CardDescription>\n        </CardHeader>\n        <CardContent>\n          <Form action=\"#\">\n            <FieldGroup>\n              <TextField name=\"email\" label=\"Email\" />\n              <PasswordField name=\"password\" label=\"Password\" />\n              <Field>\n                <Button type=\"submit\">Login</Button>\n                <Button variant=\"outline\" type=\"button\">\n                  Login with Google\n                </Button>\n                <FieldDescription className=\"text-center\">\n                  Don&apos;t have an account? <a href=\"#\">Sign up</a>\n                </FieldDescription>\n              </Field>\n            </FieldGroup>\n          </Form>\n        </CardContent>\n      </Card>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "resources/js/components/login-02/login-form.tsx"
     }
   ]
 }
