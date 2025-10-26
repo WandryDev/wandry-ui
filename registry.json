@@ -340,7 +340,7 @@
     {
       "name": "signup-02",
       "title": "Wandry UI Component",
-      "type": "registry:block",
+      "type": "registry:component",
       "description": "A component for Wandry UI",
       "dependencies": ["@wandry/inertia-form"],
       "registryDependencies": [
