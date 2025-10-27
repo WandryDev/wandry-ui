@@ -113,8 +113,8 @@ import { login } from '@/routes';
 import { Head } from '@inertiajs/react';
 import { Form } from '@wandry/inertia-form';
 
-import {TextField} from '@/components/text-field';
-import {PasswordField} from '@/components/password-field';
+import TextField from '@/components/text-field';
+import PasswordField from '@/components/password-field';
 
 import { Button } from '@/components/ui/button';
 
@@ -129,30 +129,21 @@ export default function LoginForm() {
             {...RegisteredUserController.store.form()}
             className="flex flex-col gap-6"
         >
-           <>
-                <div className="grid gap-6">
-                    <TextField name="name" label="Name" placelholder="Full name"/>
-                    <TextField type="email" name="email" label="Email" placelholder="email@example.com"/>
-                    <PasswordField name="password" label="Password" placelholder="Password"/>
-                    <PasswordField name="password_confirmation" label="Confirm password" placelholder="Confirm password"/>
+            <div className="grid gap-6">
+                <TextField name="name" label="Name" placelholder="Full name"/>
+                <TextField type="email" name="email" label="Email" placelholder="email@example.com"/>
+                <PasswordField name="password" label="Password" placelholder="Password"/>
+                <PasswordField name="password_confirmation" label="Confirm password" placelholder="Confirm password"/>
 
-                    <Button
-                        type="submit"
-                        className="mt-2 w-full"
-                        tabIndex={5}
-                        data-test="register-user-button"
-                    >
-                        Create account
-                    </Button>
-                </div>
+                <Button type="submit">Create account</Button>
+            </div>
 
-                <div className="text-center text-sm text-muted-foreground">
-                    Already have an account?{' '}
-                    <TextLink href={login()} tabIndex={6}>
-                        Log in
-                    </TextLink>
-                </div>
-            </>
+            <div className="text-center text-sm text-muted-foreground">
+                Already have an account?{' '}
+                <TextLink href={login()} tabIndex={6}>
+                    Log in
+                </TextLink>
+            </div>
         </Form>
     </AuthLayout>
   );
