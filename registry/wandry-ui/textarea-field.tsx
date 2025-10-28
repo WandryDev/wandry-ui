@@ -15,11 +15,20 @@ export type TextareaFieldProps = {
   label?: string;
   description?: string;
   placeholder?: string;
+  classes?: TextareaFieldClasses;
+};
+
+type TextareaFieldClasses = {
+  field?: string;
+  label?: string;
+  textarea?: string;
+  description?: string;
+  error?: string;
 };
 
 const TextareaField: React.FC<
   React.ComponentProps<"textarea"> & TextareaFieldProps
-> = ({ name, label, description, placeholder, ...textareaProps }) => {
+> = ({ name, label, description, placeholder, classes, ...textareaProps }) => {
   const field = useField(name, { defaultValue: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -28,17 +37,22 @@ const TextareaField: React.FC<
   };
 
   return (
-    <Field>
-      <FieldLabel htmlFor={name}>{label}</FieldLabel>
+    <Field className={classes?.field}>
+      <FieldLabel className={classes?.label} htmlFor={name}>
+        {label}
+      </FieldLabel>
       <Textarea
         {...textareaProps}
         id={name}
         placeholder={placeholder}
         value={field.value}
         onChange={handleChange}
+        className={classes?.textarea}
       />
-      <FieldDescription>{description}</FieldDescription>
-      <FieldError>{field.error}</FieldError>
+      <FieldDescription className={classes?.description}>
+        {description}
+      </FieldDescription>
+      <FieldError className={classes?.error}>{field.error}</FieldError>
     </Field>
   );
 };

@@ -49,6 +49,15 @@ export type SelectTriggerProps = React.ComponentProps<
   size?: "sm" | "default";
 };
 
+type SelectFieldClasses = {
+  field?: string;
+  label?: string;
+  trigger?: string;
+  content?: string;
+  description?: string;
+  error?: string;
+};
+
 export type SelectFieldProps = {
   name: string;
   placeholder?: string;
@@ -59,6 +68,7 @@ export type SelectFieldProps = {
   contentProps?: SelectContentProps;
   triggerProps?: SelectTriggerProps;
   itemProps?: Omit<SelectItemProps, "value">;
+  classes?: SelectFieldClasses;
 };
 
 const isGroupedOptions = (
@@ -77,22 +87,23 @@ const SelectField: React.FC<SelectFieldProps> = ({
   contentProps,
   triggerProps,
   itemProps,
+  classes,
 }) => {
   const field = useField(name);
 
   return (
-    <Field>
-      <FieldLabel>{label}</FieldLabel>
+    <Field className={classes?.field}>
+      <FieldLabel className={classes?.label}>{label}</FieldLabel>
       <Select
         name={name}
         value={field.value}
         onValueChange={field.onChange}
         {...selectProps}
       >
-        <SelectTrigger {...triggerProps}>
+        <SelectTrigger className={classes?.trigger} {...triggerProps}>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent {...contentProps}>
+        <SelectContent className={classes?.content} {...contentProps}>
           {isGroupedOptions(options) ? (
             <SelectFieldGroupedContent options={options} {...itemProps} />
           ) : (
@@ -100,8 +111,10 @@ const SelectField: React.FC<SelectFieldProps> = ({
           )}
         </SelectContent>
       </Select>
-      <FieldDescription>{description}</FieldDescription>
-      <FieldError>{field.error}</FieldError>
+      <FieldDescription className={classes?.description}>
+        {description}
+      </FieldDescription>
+      <FieldError className={classes?.error}>{field.error}</FieldError>
     </Field>
   );
 };

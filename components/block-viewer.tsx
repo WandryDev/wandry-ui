@@ -13,7 +13,11 @@ import {
 import { registryItemFileSchema, registryItemSchema } from "shadcn/schema";
 import { z } from "zod";
 
-import { createFileTreeForRegistryItemFiles, FileTree } from "@/lib/registry";
+import {
+  createFileTreeForRegistryItemFiles,
+  FileTree,
+  getRegistryComponent,
+} from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { getIconForLanguageExtension } from "@/components/icons";
@@ -37,6 +41,7 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Index } from "@/registry/__index__";
 
 type BlockViewerContext = {
   item: z.infer<typeof registryItemSchema>;
@@ -150,19 +155,19 @@ function BlockViewerToolbar() {
 }
 
 function BlockViewerIframe({ className }: { className?: string }) {
-  const { item, iframeKey } = useBlockViewer();
+  const { item } = useBlockViewer();
+
+  const Component = Index[item.name]?.component;
 
   return (
-    <iframe
-      key={iframeKey}
-      src={`/view/${item.name}?embed=true`}
-      height={item.meta?.iframeHeight ?? 930}
-      loading="lazy"
+    <div
       className={cn(
         "bg-background no-scrollbar relative z-20 w-full",
-        className
+        item.meta?.container
       )}
-    />
+    >
+      <Component />
+    </div>
   );
 }
 

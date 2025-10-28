@@ -16,12 +16,21 @@ import {
 
 type InputProps = Omit<React.ComponentProps<"input">, "name">;
 
+type TextFieldClasses = {
+  field?: string;
+  label?: string;
+  input?: string;
+  description?: string;
+  error?: string;
+};
+
 export type TextFieldProps = {
   name: string;
   description?: string;
   label?: string;
   addonLeft?: React.ReactNode;
   addonRight?: React.ReactNode;
+  classes?: TextFieldClasses;
 };
 
 const TextField: React.FC<TextFieldProps & InputProps> = ({
@@ -30,6 +39,7 @@ const TextField: React.FC<TextFieldProps & InputProps> = ({
   description,
   addonLeft,
   addonRight,
+  classes,
   defaultValue = "",
   ...inputProps
 }) => {
@@ -41,14 +51,17 @@ const TextField: React.FC<TextFieldProps & InputProps> = ({
   };
 
   return (
-    <Field>
-      <FieldLabel htmlFor={name}>{label}</FieldLabel>
+    <Field className={classes?.field}>
+      <FieldLabel className={classes?.label} htmlFor={name}>
+        {label}
+      </FieldLabel>
       <InputGroup>
         <InputGroupInput
           id={name}
           name={name}
           value={field.value}
           onChange={onChange}
+          className={classes?.input}
           {...inputProps}
         />
         {addonLeft && <InputGroupAddon>{addonLeft}</InputGroupAddon>}
@@ -56,8 +69,10 @@ const TextField: React.FC<TextFieldProps & InputProps> = ({
           <InputGroupAddon align="inline-end">{addonRight}</InputGroupAddon>
         )}
       </InputGroup>
-      <FieldDescription>{description}</FieldDescription>
-      <FieldError>{field.error}</FieldError>
+      <FieldDescription className={classes?.description}>
+        {description}
+      </FieldDescription>
+      <FieldError className={classes?.error}>{field.error}</FieldError>
     </Field>
   );
 };

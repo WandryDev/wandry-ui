@@ -10,11 +10,21 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/cn";
+
+type CheckboxFieldClasses = {
+  field?: string;
+  checkbox?: string;
+  label?: string;
+  description?: string;
+  error?: string;
+};
 
 export type CheckboxFieldProps = {
   name: string;
   label?: string;
   description?: string;
+  classes?: CheckboxFieldClasses;
   orientation?: "vertical" | "horizontal" | "responsive";
 };
 
@@ -22,23 +32,27 @@ const CheckboxField: React.FC<CheckboxFieldProps> = ({
   name,
   label,
   description,
+  classes,
   orientation = "horizontal",
 }) => {
   const field = useField(name, { defaultValue: false });
 
   return (
-    <Field orientation={orientation}>
+    <Field orientation={orientation} className={classes?.field}>
       <Checkbox
         id={name}
         name={name}
         checked={field.value}
         onCheckedChange={field.onChange}
+        className={classes?.checkbox}
       />
-      <FieldLabel htmlFor={name} className="font-normal" defaultChecked>
+      <FieldLabel htmlFor={name} className={cn("font-normal", classes?.label)}>
         {label}
       </FieldLabel>
-      <FieldDescription>{description}</FieldDescription>
-      <FieldError>{field.error}</FieldError>
+      <FieldDescription className={classes?.description}>
+        {description}
+      </FieldDescription>
+      <FieldError className={classes?.error}>{field.error}</FieldError>
     </Field>
   );
 };
