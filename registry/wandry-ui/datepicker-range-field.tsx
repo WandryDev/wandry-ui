@@ -25,6 +25,8 @@ export type DatepickerRangeFieldProps = {
   nameFrom: string;
   nameTo: string;
   label?: string;
+  errorToName?: string;
+  errorFromName?: string;
   placeholder?: string;
   description?: string;
 };
@@ -33,16 +35,18 @@ const DatepickerRangeField: React.FC<DatepickerRangeFieldProps> = ({
   nameFrom,
   nameTo,
   label,
-  placeholder = "Pick a date range",
   description,
+  errorToName,
+  errorFromName,
+  placeholder = "Pick a date range",
 }) => {
   const { setValue } = useFormContext();
 
   const from = useWatch(nameFrom, { defaultValue: new Date() });
   const to = useWatch(nameTo, { defaultValue: new Date() });
 
-  const { error: errorFrom } = useField(nameFrom);
-  const { error: errorTo } = useField(nameTo);
+  const { error: errorFrom } = useField(nameFrom, { errorName: errorFromName });
+  const { error: errorTo } = useField(nameTo, { errorName: errorToName });
 
   const onChange = (range: DateRange) => {
     setValue(nameFrom, range.from);

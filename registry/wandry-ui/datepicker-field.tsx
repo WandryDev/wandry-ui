@@ -24,6 +24,7 @@ export type DatepickerFieldProps = React.ComponentProps<typeof DayPicker> & {
   placeholder?: string;
   description?: string;
   label?: string;
+  errorName?: string;
   variant?: React.ComponentProps<typeof Button>["variant"];
 };
 
@@ -32,9 +33,10 @@ const DatepickerField: React.FC<DatepickerFieldProps> = ({
   label,
   placeholder,
   description,
+  errorName,
 }) => {
   const [open, setOpen] = React.useState(false);
-  const field = useField(name, { defaultValue: new Date() });
+  const field = useField(name, { defaultValue: new Date(), errorName });
 
   return (
     <Field>

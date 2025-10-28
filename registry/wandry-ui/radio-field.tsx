@@ -30,6 +30,7 @@ export type RadioFieldProps = {
   label?: string;
   description?: string;
   options: Option[];
+  errorName?: string;
   orientation?: "vertical" | "horizontal" | "responsive";
   classes?: RadioFieldClasses;
 };
@@ -40,9 +41,10 @@ const RadioField: React.FC<RadioFieldProps> = ({
   classes,
   label,
   description,
+  errorName,
   orientation = "horizontal",
 }) => {
-  const field = useField(name);
+  const field = useField(name, { errorName });
 
   return (
     <Field>

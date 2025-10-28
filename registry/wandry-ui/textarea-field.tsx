@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 export type TextareaFieldProps = {
   name: string;
   label?: string;
+  errorName?: string;
   description?: string;
   placeholder?: string;
   classes?: TextareaFieldClasses;
@@ -28,8 +29,16 @@ type TextareaFieldClasses = {
 
 const TextareaField: React.FC<
   React.ComponentProps<"textarea"> & TextareaFieldProps
-> = ({ name, label, description, placeholder, classes, ...textareaProps }) => {
-  const field = useField(name, { defaultValue: "" });
+> = ({
+  name,
+  label,
+  description,
+  placeholder,
+  classes,
+  errorName,
+  ...textareaProps
+}) => {
+  const field = useField(name, { defaultValue: "", errorName });
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;

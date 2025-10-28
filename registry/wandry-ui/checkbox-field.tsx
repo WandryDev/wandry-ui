@@ -25,6 +25,7 @@ export type CheckboxFieldProps = {
   label?: string;
   description?: string;
   classes?: CheckboxFieldClasses;
+  errorName?: string;
   orientation?: "vertical" | "horizontal" | "responsive";
 };
 
@@ -33,9 +34,10 @@ const CheckboxField: React.FC<CheckboxFieldProps> = ({
   label,
   description,
   classes,
+  errorName,
   orientation = "horizontal",
 }) => {
-  const field = useField(name, { defaultValue: false });
+  const field = useField(name, { defaultValue: false, errorName });
 
   return (
     <Field orientation={orientation} className={classes?.field}>

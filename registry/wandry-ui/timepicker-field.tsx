@@ -12,6 +12,7 @@ import * as React from "react";
 export type TimepickerFieldProps = {
   name: string;
   label?: string;
+  errorName?: string;
   placeholder?: string;
   description?: string;
 };
@@ -21,8 +22,9 @@ const TimepickerField: React.FC<TimepickerFieldProps> = ({
   label,
   description,
   placeholder,
+  errorName,
 }) => {
-  const field = useField(name, { defaultValue: "" });
+  const field = useField(name, { defaultValue: "", errorName });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     field.onChange(event.target.value);

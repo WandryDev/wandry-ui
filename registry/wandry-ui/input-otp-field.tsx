@@ -36,7 +36,9 @@ export type InputOtpFieldProps = {
   label?: string;
   description?: string;
   length?: number;
-} & ResendProps;
+  errorName?: string;
+} & ResendProps &
+  Omit<React.ComponentProps<typeof OTPInput>, "render" | "maxLength">;
 
 const hasResendLogic = (onResend?: () => void): onResend is ResendFn => {
   return onResend !== null && onResend !== undefined;
@@ -51,10 +53,11 @@ const InputOtpField: React.FC<InputOtpFieldProps> = ({
   resendTimeoutMs,
   resendButtonPlaceholder,
   didntReceivePlaceholder,
+  errorName,
   length = 6,
   ...inputOtpProps
 }) => {
-  const field = useField(name, { defaultValue: "" });
+  const field = useField(name, { defaultValue: "", errorName });
 
   return (
     <Field>

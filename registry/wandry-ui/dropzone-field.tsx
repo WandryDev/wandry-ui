@@ -27,6 +27,7 @@ type DropzoneContextType = {
 export type DropzoneProps = Omit<DropzoneOptions, "onDrop"> & {
   src?: File[];
   className?: string;
+
   onDrop?: (
     acceptedFiles: File[],
     fileRejections: FileRejection[],
@@ -43,15 +44,17 @@ export type DropzoneFieldProps = DropzoneProps & {
   name: string;
   label?: string;
   description?: string;
+  errorName?: string;
 };
 
 const DropzoneField: React.FC<DropzoneFieldProps> = ({
   name,
   label,
   description,
+  errorName,
   ...props
 }) => {
-  const field = useField(name);
+  const field = useField(name, { errorName });
 
   const onDrop = (acceptedFiles: File[]) => field.onChange(acceptedFiles);
 

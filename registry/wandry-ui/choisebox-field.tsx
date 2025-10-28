@@ -26,6 +26,7 @@ export type ChoiseboxFieldProps = {
   label?: string;
   description?: string;
   defaultValue?: string;
+  errorName?: string;
 };
 
 const ChoiseboxField: React.FC<ChoiseboxFieldProps> = ({
@@ -34,8 +35,9 @@ const ChoiseboxField: React.FC<ChoiseboxFieldProps> = ({
   description,
   options,
   defaultValue,
+  errorName,
 }) => {
-  const field = useField(name, { defaultValue });
+  const field = useField(name, { defaultValue, errorName });
 
   return (
     <FieldGroup className="w-full max-w-md">

@@ -28,6 +28,7 @@ export type TextFieldProps = {
   name: string;
   description?: string;
   label?: string;
+  errorName?: string;
   addonLeft?: React.ReactNode;
   addonRight?: React.ReactNode;
   classes?: TextFieldClasses;
@@ -40,10 +41,11 @@ const TextField: React.FC<TextFieldProps & InputProps> = ({
   addonLeft,
   addonRight,
   classes,
+  errorName,
   defaultValue = "",
   ...inputProps
 }) => {
-  const field = useField(name, { defaultValue });
+  const field = useField(name, { defaultValue, errorName });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

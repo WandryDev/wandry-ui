@@ -70,8 +70,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(next@15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@wandry/inertia-form':
-        specifier: ^1.8.1
-        version: 1.8.1(@inertiajs/core@2.2.11)(@inertiajs/react@2.2.11(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)
+        specifier: ^1.9.0
+        version: 1.9.0(@inertiajs/core@2.2.13)(@inertiajs/react@2.2.13(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)
       button:
         specifier: ^1.1.1
         version: 1.1.1
@@ -704,11 +704,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@inertiajs/core@2.2.11':
-    resolution: {integrity: sha512-epXjgNZia/N5K4Y8SfAsy6bsagRjmLxQaIe2/SyMGZza0Vg4aDFnk2i3kZ7ewDcvXULXMiN42yxwiXt7rfVnXA==}
+  '@inertiajs/core@2.2.13':
+    resolution: {integrity: sha512-wi9pWm4XbA0/owm0KwN3Zv/d/z8p+JhULldtkhVfJEdhQxIuS31TzH0fuun923c+caTrv9zjh1azb9Hw45cMvQ==}
 
-  '@inertiajs/react@2.2.11':
-    resolution: {integrity: sha512-n9UUYeEx77W6bV8mbZzCvYPPGAql7llpFJXsg8Ns7EL2dS5+0mj+JkBLJ3AQzdRKFc6e64/k7jjJgAhcT6y89g==}
+  '@inertiajs/react@2.2.13':
+    resolution: {integrity: sha512-YRxrJs1k1kCcvwCmhQHSlk9JdeOAhiWSCHGTDuHOYjYKMD9lxECa5rRJDVTO3DdZtAUR6aoup2vpfUN09IvnkA==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -2127,8 +2127,8 @@ packages:
       vue-router:
         optional: true
 
-  '@wandry/inertia-form@1.8.1':
-    resolution: {integrity: sha512-kQajySihRmA3nNMtx1VVfz2cs38Vw+Ib/Ln39lhH3S7aak6Aa6ukwNKuzUSgfuhcPmI8IqQ0VmnjyRZ1ogN5dA==}
+  '@wandry/inertia-form@1.9.0':
+    resolution: {integrity: sha512-E3moTZOvRnRMf7FdCSB8LciQBAa9raRNgnEtX/XUMiPoaatpWIxLo1XqC59eQTVgtOKJvNfT6fs6i2CMbPHCig==}
     peerDependencies:
       '@inertiajs/core': '>=1'
       '@inertiajs/react': '>=1'
@@ -2254,8 +2254,8 @@ packages:
     resolution: {integrity: sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==}
     engines: {node: '>=4'}
 
-  axios@1.12.2:
-    resolution: {integrity: sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==}
+  axios@1.13.1:
+    resolution: {integrity: sha512-hU4EGxxt+j7TQijx1oYdAjw4xuIp1wRQSsbMFwSthCWeBQur1eF+qJ5iQ5sN3Tw8YRzQNKb8jszgBdMDVqwJcw==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -5375,18 +5375,18 @@ snapshots:
   '@img/sharp-win32-x64@0.34.3':
     optional: true
 
-  '@inertiajs/core@2.2.11':
+  '@inertiajs/core@2.2.13':
     dependencies:
       '@types/lodash-es': 4.17.12
-      axios: 1.12.2
+      axios: 1.13.1
       lodash-es: 4.17.21
       qs: 6.14.0
     transitivePeerDependencies:
       - debug
 
-  '@inertiajs/react@2.2.11(react@19.1.0)':
+  '@inertiajs/react@2.2.13(react@19.1.0)':
     dependencies:
-      '@inertiajs/core': 2.2.11
+      '@inertiajs/core': 2.2.13
       '@types/lodash-es': 4.17.12
       lodash-es: 4.17.21
       react: 19.1.0
@@ -6832,10 +6832,10 @@ snapshots:
       next: 15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
-  '@wandry/inertia-form@1.8.1(@inertiajs/core@2.2.11)(@inertiajs/react@2.2.11(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)':
+  '@wandry/inertia-form@1.9.0(@inertiajs/core@2.2.13)(@inertiajs/react@2.2.13(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)':
     dependencies:
-      '@inertiajs/core': 2.2.11
-      '@inertiajs/react': 2.2.11(react@19.1.0)
+      '@inertiajs/core': 2.2.13
+      '@inertiajs/react': 2.2.13(react@19.1.0)
       '@types/react': 19.1.2
       '@types/react-dom': 19.1.2(@types/react@19.1.2)
       clsx: 2.1.1
@@ -6974,7 +6974,7 @@ snapshots:
 
   axe-core@4.10.3: {}
 
-  axios@1.12.2:
+  axios@1.13.1:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.4

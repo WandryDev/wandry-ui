@@ -63,6 +63,7 @@ export type SelectFieldProps = {
   placeholder?: string;
   label?: string;
   description?: string;
+  errorName?: string;
   options: Options[] | GroupedOptions;
   selectProps?: SelectProps;
   contentProps?: SelectContentProps;
@@ -88,8 +89,9 @@ const SelectField: React.FC<SelectFieldProps> = ({
   triggerProps,
   itemProps,
   classes,
+  errorName,
 }) => {
-  const field = useField(name);
+  const field = useField(name, { errorName });
 
   return (
     <Field className={classes?.field}>
