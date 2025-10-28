@@ -613,6 +613,26 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "name": "settings-03",
+      "title": "Settings 03",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [
+        "text-field",
+        "select-field",
+        "choisebox-field"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/settings-03/page.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }

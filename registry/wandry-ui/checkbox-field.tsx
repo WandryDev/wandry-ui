@@ -10,7 +10,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Checkbox } from "@/components/ui/checkbox";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
 
 type CheckboxFieldClasses = {
   field?: string;
