@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-nav";
 import { cn } from "@/lib/utils";
 import { SiteFooter } from "@/components/site-footer";
@@ -20,7 +20,11 @@ export default function Layout({ children }: LayoutProps<"/">) {
     <html lang="en" className={cn(inter.className)} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <Suspense>
-          <ThemeProvider enableSystem={false}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
             <SiteHeader />
             <RootProvider>
               <main className="flex flex-1 flex-col">{children}</main>
