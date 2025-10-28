@@ -57,9 +57,8 @@ export const Features = () => {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="bg-card border-border p-5 space-y-1 hover:border-foreground/20 transition-colors"
-            >
-              <div className="p-2 rounded bg-muted w-fit">
+              className="bg-card border-border p-5 space-y-1 hover:border-foreground/20 transition-colors">
+              <div className="p-2 rounded w-fit">
                 <feature.icon className="size-6" />
               </div>
 
