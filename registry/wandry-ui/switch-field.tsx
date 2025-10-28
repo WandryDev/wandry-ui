@@ -14,6 +14,7 @@ export type SwitchFieldProps = {
   name: string;
   label?: string;
   description?: string;
+  errorName?: string;
   orientation?: "vertical" | "horizontal" | "responsive";
 };
 
@@ -21,9 +22,10 @@ const SwitchField: React.FC<SwitchFieldProps> = ({
   name,
   label,
   description,
+  errorName,
   orientation = "horizontal",
 }) => {
-  const field = useField(name, { defaultValue: false });
+  const field = useField(name, { defaultValue: false, errorName });
 
   return (
     <Field orientation={orientation}>

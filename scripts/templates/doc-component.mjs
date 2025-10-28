@@ -11,18 +11,10 @@ description: ${registryItem.description}
 ## Installation
 
 <CodeBlockCommand
-  __pnpm__="pnpm dlx shadcn@latest add https://ui.wandry.com.ua/r/${
-    registryItem.name
-  }.json"
-  __npm__="npx shadcn@latest add https://ui.wandry.com.ua/r/${
-    registryItem.name
-  }.json"
-  __bun__="bunx --bun shadcn@latest add https://ui.wandry.com.ua/r/${
-    registryItem.name
-  }.json"
-  __yarn__="yarn dlx shadcn@latest add https://ui.wandry.com.ua/r/${
-    registryItem.name
-  }.json"
+  __pnpm__="pnpm dlx shadcn@latest add @wandry-ui/${registryItem.name}"
+  __npm__="npx shadcn@latest add @wandry-ui/${registryItem.name}"
+  __bun__="bunx --bun shadcn@latest add @wandry-ui/${registryItem.name}"
+  __yarn__="yarn dlx shadcn@latest add @wandry-ui/${registryItem.name}"
 />
 
 ## Usage

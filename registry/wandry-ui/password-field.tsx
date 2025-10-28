@@ -23,6 +23,7 @@ export type PasswordFieldProps = InputProps & {
   label?: string;
   description?: string;
   placeholder?: string;
+  errorName?: string;
 };
 
 const PasswordField: React.FC<PasswordFieldProps> = ({
@@ -30,10 +31,11 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
   label,
   description,
   placeholder,
+  errorName,
   ...inputProps
 }) => {
   const [visible, setVisible] = React.useState(false);
-  const field = useField(name, { defaultValue: "" });
+  const field = useField(name, { defaultValue: "", errorName });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

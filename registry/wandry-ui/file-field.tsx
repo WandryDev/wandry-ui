@@ -14,6 +14,7 @@ export type FileFieldProps = {
   description?: string;
   placeholder?: string;
   accept?: string;
+  errorName?: string;
 };
 
 const FileField: React.FC<FileFieldProps> = ({
@@ -21,8 +22,9 @@ const FileField: React.FC<FileFieldProps> = ({
   label,
   description,
   accept,
+  errorName,
 }) => {
-  const field = useField(name, { defaultValue: [] as File[] });
+  const field = useField(name, { defaultValue: [] as File[], errorName });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {

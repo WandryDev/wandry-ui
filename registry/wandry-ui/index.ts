@@ -14,3 +14,4 @@ export { default as SliderField } from "./slider-field";
 export { default as FileField } from "./file-field";
 export { default as ChoiseboxField } from "./choisebox-field";
 export { default as DropzoneField } from "./dropzone-field";
+export { default as SubmitButton } from "./submit-button";

@@ -14,6 +14,7 @@ export type SliderFieldProps = Omit<
   name: string;
   label?: string;
   description?: string;
+  errorName?: string;
   defaultValue?: number[];
 };
 
@@ -21,10 +22,11 @@ const SliderField: React.FC<SliderFieldProps> = ({
   name,
   label,
   description,
+  errorName,
   defaultValue = [0],
   ...props
 }) => {
-  const field = useField(name, { defaultValue });
+  const field = useField(name, { defaultValue, errorName });
 
   return (
     <Field>

@@ -13,14 +13,32 @@ import { Textarea } from "@/components/ui/textarea";
 export type TextareaFieldProps = {
   name: string;
   label?: string;
+  errorName?: string;
   description?: string;
   placeholder?: string;
+  classes?: TextareaFieldClasses;
+};
+
+type TextareaFieldClasses = {
+  field?: string;
+  label?: string;
+  textarea?: string;
+  description?: string;
+  error?: string;
 };
 
 const TextareaField: React.FC<
   React.ComponentProps<"textarea"> & TextareaFieldProps
-> = ({ name, label, description, placeholder, ...textareaProps }) => {
-  const field = useField(name, { defaultValue: "" });
+> = ({
+  name,
+  label,
+  description,
+  placeholder,
+  classes,
+  errorName,
+  ...textareaProps
+}) => {
+  const field = useField(name, { defaultValue: "", errorName });
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
@@ -28,17 +46,22 @@ const TextareaField: React.FC<
   };
 
   return (
-    <Field>
-      <FieldLabel htmlFor={name}>{label}</FieldLabel>
+    <Field className={classes?.field}>
+      <FieldLabel className={classes?.label} htmlFor={name}>
+        {label}
+      </FieldLabel>
       <Textarea
         {...textareaProps}
         id={name}
         placeholder={placeholder}
         value={field.value}
         onChange={handleChange}
+        className={classes?.textarea}
       />
-      <FieldDescription>{description}</FieldDescription>
-      <FieldError>{field.error}</FieldError>
+      <FieldDescription className={classes?.description}>
+        {description}
+      </FieldDescription>
+      <FieldError className={classes?.error}>{field.error}</FieldError>
     </Field>
   );
 };

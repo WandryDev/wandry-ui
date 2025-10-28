@@ -44,6 +44,7 @@ export type AsyncAutocompleteFieldProps = {
   loadingPlaceholder?: string;
   initPlaceholder?: string;
   emptyPlaceholder?: string;
+  errorName?: string;
   loadOptions: LoadFn;
 };
 
@@ -51,6 +52,7 @@ const AsyncAutocompleteField: React.FC<AsyncAutocompleteFieldProps> = ({
   name,
   label,
   description,
+  errorName,
   placeholder = "Select an option",
   inputPlaceholder = "Type to search...",
   loadingPlaceholder = "Searching...",
@@ -58,7 +60,7 @@ const AsyncAutocompleteField: React.FC<AsyncAutocompleteFieldProps> = ({
   emptyPlaceholder = "No results found.",
   loadOptions,
 }) => {
-  const field = useField(name);
+  const field = useField(name, { errorName });
 
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");

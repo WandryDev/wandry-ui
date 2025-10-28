@@ -37,6 +37,7 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Index } from "@/registry/__index__";
 
 type BlockViewerContext = {
   item: z.infer<typeof registryItemSchema>;
@@ -149,20 +150,20 @@ function BlockViewerToolbar() {
   );
 }
 
-function BlockViewerIframe({ className }: { className?: string }) {
-  const { item, iframeKey } = useBlockViewer();
+function BlockViewerIframe() {
+  const { item } = useBlockViewer();
+
+  const Component = Index[item.name]?.component;
 
   return (
-    <iframe
-      key={iframeKey}
-      src={`/view/${item.name}?embed=true`}
-      height={item.meta?.iframeHeight ?? 930}
-      loading="lazy"
+    <div
       className={cn(
         "bg-background no-scrollbar relative z-20 w-full",
-        className
+        item.meta?.container
       )}
-    />
+    >
+      <Component />
+    </div>
   );
 }
 
