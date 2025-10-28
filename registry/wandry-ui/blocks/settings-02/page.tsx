@@ -8,7 +8,6 @@ import TextareaField from "@/registry/wandry-ui/textarea-field";
 import CheckboxField from "@/registry/wandry-ui/checkbox-field";
 
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
 
 const Page = () => {
   return (
@@ -156,14 +155,6 @@ const Page = () => {
           </div>
         </div>
         <Separator className="my-8" />
-        <div className="flex items-center justify-end space-x-4">
-          <Button type="button" variant="outline" className="whitespace-nowrap">
-            Go back
-          </Button>
-          <Button type="submit" className="whitespace-nowrap">
-            Save settings
-          </Button>
-        </div>
       </Form>
     </div>
   );
