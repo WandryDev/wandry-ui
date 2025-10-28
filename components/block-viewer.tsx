@@ -13,11 +13,7 @@ import {
 import { registryItemFileSchema, registryItemSchema } from "shadcn/schema";
 import { z } from "zod";
 
-import {
-  createFileTreeForRegistryItemFiles,
-  FileTree,
-  getRegistryComponent,
-} from "@/lib/registry";
+import { createFileTreeForRegistryItemFiles, FileTree } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { getIconForLanguageExtension } from "@/components/icons";
@@ -154,7 +150,7 @@ function BlockViewerToolbar() {
   );
 }
 
-function BlockViewerIframe({ className }: { className?: string }) {
+function BlockViewerIframe() {
   const { item } = useBlockViewer();
 
   const Component = Index[item.name]?.component;
