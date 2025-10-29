@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { GitHubLink } from "@/components/github-link";
 import { MainNav } from "@/components/main-nav";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 import { motion } from "motion/react";
 import { useHideLayout } from "@/hooks/use-hide-layout";
@@ -39,11 +40,10 @@ export function SiteHeader() {
           y: { duration: 1, delay: 1, ease: "easeInOut" },
           opacity: { duration: 1, delay: 1, ease: "easeInOut" },
         },
-      }}
-    >
+      }}>
       <header className="bg-transparent sticky top-0 z-50 w-full py-2">
         <div className="container-wrapper 3xl:fixed:px-0 px-6">
-          <div className="3xl:fixed:container flex h-(--header-height) items-center gap-30 **:data-[slot=separator]:!h-4">
+          <div className="3xl:fixed:container flex h-(--header-height) items-center gap-30 **:data-[slot=separator]:h-4!">
             <Link href="/">
               <div className="flex items-center gap-x-4">
                 <svg
@@ -52,8 +52,7 @@ export function SiteHeader() {
                   height="84"
                   viewBox="0 0 84 84"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                  xmlns="http://www.w3.org/2000/svg">
                   <circle cx="42" cy="42" r="42" fill="black" />
                   <path
                     d="M60.0895 26L55.3658 53.4595H54.5338L47.5557 26H37.33L30.2445 53.5389H29.3857L23.9105 26H15L22.4076 59.7882C22.4344 59.9206 22.5417 60 22.6759 60H35.5318C35.8002 60 36.0149 59.8146 36.0686 59.5763L41.6511 36.3271H42.4026L47.7972 59.5498C47.8509 59.8146 48.0924 60 48.3877 60H61.163C61.3509 60 61.4851 59.8676 61.5388 59.7087L69 26H60.0895Z"
@@ -70,6 +69,7 @@ export function SiteHeader() {
 
             <div className="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
               <MainNav items={links} className="hidden lg:flex" />
+              <ThemeToggle />
               <GitHubLink />
             </div>
           </div>
