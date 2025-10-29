@@ -470,7 +470,8 @@
         "text-field",
         "select-field",
         "textarea-field",
-        "radio-field"
+        "radio-field",
+        "submit-button"
       ],
       "files": [
         {
@@ -486,7 +487,13 @@
       "type": "registry:block",
       "description": "A component for Wandry UI",
       "dependencies": ["@wandry/inertia-form"],
-      "registryDependencies": ["text-field", "select-field", "checkbox-field"],
+      "registryDependencies": [
+        "button",
+        "text-field",
+        "select-field",
+        "checkbox-field",
+        "submit-button"
+      ],
       "files": [
         {
           "path": "registry/wandry-ui/blocks/settings-02/page.tsx",
@@ -494,7 +501,6 @@
         }
       ]
     },
-
     {
       "name": "submit-button",
       "title": "Submit Button",
@@ -506,6 +512,26 @@
         {
           "path": "registry/wandry-ui/submit-button.tsx",
           "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "settings-03",
+      "title": "Settings 03",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": [
+        "button",
+        "text-field",
+        "select-field",
+        "choisebox-field",
+        "submit-button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/settings-03/page.tsx",
+          "type": "registry:block"
         }
       ]
     }

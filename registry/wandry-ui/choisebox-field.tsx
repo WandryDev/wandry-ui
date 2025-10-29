@@ -7,9 +7,8 @@ import {
   Field,
   FieldContent,
   FieldDescription,
-  FieldGroup,
+  FieldError,
   FieldLabel,
-  FieldSet,
   FieldTitle,
 } from "@/components/ui/field";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -20,6 +19,14 @@ type Option = {
   value: string;
 };
 
+type ChoiseboxClasses = {
+  field?: string;
+  label?: string;
+  description?: string;
+  error?: string;
+  item?: string;
+};
+
 export type ChoiseboxFieldProps = {
   name: string;
   options: Option[];
@@ -27,6 +34,8 @@ export type ChoiseboxFieldProps = {
   description?: string;
   defaultValue?: string;
   errorName?: string;
+  classes?: ChoiseboxClasses;
+  orientation?: "horizontal" | "vertical";
 };
 
 const ChoiseboxField: React.FC<ChoiseboxFieldProps> = ({
@@ -36,14 +45,20 @@ const ChoiseboxField: React.FC<ChoiseboxFieldProps> = ({
   options,
   defaultValue,
   errorName,
+  classes,
+  orientation = "vertical",
 }) => {
   const field = useField(name, { defaultValue, errorName });
 
   return (
-    <FieldGroup className="w-full max-w-md">
-      <FieldSet>
-        <FieldLabel htmlFor="compute-environment-p8w">{label}</FieldLabel>
-        <FieldDescription>{description}</FieldDescription>
+    <Field className={classes?.field} orientation="responsive">
+      <FieldLabel className={classes?.label} htmlFor="compute-environment-p8w">
+        {label}
+      </FieldLabel>
+      <FieldDescription className={classes?.description}>
+        {description}
+      </FieldDescription>
+      <Field orientation={orientation}>
         {options.map((option) => (
           <RadioGroup
             key={option.value}
@@ -61,8 +76,9 @@ const ChoiseboxField: React.FC<ChoiseboxFieldProps> = ({
             </FieldLabel>
           </RadioGroup>
         ))}
-      </FieldSet>
-    </FieldGroup>
+      </Field>
+      <FieldError className={classes?.error}>{field.error}</FieldError>
+    </Field>
   );
 };
 

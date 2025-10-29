@@ -10,6 +10,7 @@ import { SiteHeader } from "@/components/site-nav";
 import { cn } from "@/lib/utils";
 import { SiteFooter } from "@/components/site-footer";
 import { Suspense } from "react";
+import Head from "next/head";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,13 +19,22 @@ const inter = Inter({
 export default function Layout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={cn(inter.className)} suppressHydrationWarning>
+      <Head>
+        <title>Wandry UI</title>
+        <meta
+          name="description"
+          content="A set of open source fully controlled React Inertia form elements"
+        />
+        <meta property="og:title" content="Wandry UI" key="title" />
+      </Head>
       <body className="flex flex-col min-h-screen">
         <Suspense>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
-            disableTransitionOnChange>
+            disableTransitionOnChange
+          >
             <SiteHeader />
             <RootProvider>
               <main className="flex flex-1 flex-col">{children}</main>
