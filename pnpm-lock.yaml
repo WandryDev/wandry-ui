@@ -73,8 +73,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(next@15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@wandry/inertia-form':
-        specifier: ^1.9.0
-        version: 1.9.0(@inertiajs/core@2.2.13)(@inertiajs/react@2.2.13(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)
+        specifier: ^1.10.1
+        version: 1.10.1(@inertiajs/core@2.2.15)(@inertiajs/react@2.2.15(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)
       button:
         specifier: ^1.1.1
         version: 1.1.1
@@ -707,11 +707,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@inertiajs/core@2.2.13':
-    resolution: {integrity: sha512-wi9pWm4XbA0/owm0KwN3Zv/d/z8p+JhULldtkhVfJEdhQxIuS31TzH0fuun923c+caTrv9zjh1azb9Hw45cMvQ==}
+  '@inertiajs/core@2.2.15':
+    resolution: {integrity: sha512-0hj2oBWzj2Z2+UMTrqBMrRrlgoPZsqru7E9FEiR+zkOTywhuV0izJi/rAbmGBIxPAz9v3zMN/wrAy4293xBZoQ==}
 
-  '@inertiajs/react@2.2.13':
-    resolution: {integrity: sha512-YRxrJs1k1kCcvwCmhQHSlk9JdeOAhiWSCHGTDuHOYjYKMD9lxECa5rRJDVTO3DdZtAUR6aoup2vpfUN09IvnkA==}
+  '@inertiajs/react@2.2.15':
+    resolution: {integrity: sha512-b6BaGtW18TqyADr/dwTSe5FHYTo6iCGkTmVLxJyyIUqKE08YXXzxfFPWbjhLsfP5SDvpg/uqlVVfMP8cIQbCtw==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -2130,8 +2130,8 @@ packages:
       vue-router:
         optional: true
 
-  '@wandry/inertia-form@1.9.0':
-    resolution: {integrity: sha512-E3moTZOvRnRMf7FdCSB8LciQBAa9raRNgnEtX/XUMiPoaatpWIxLo1XqC59eQTVgtOKJvNfT6fs6i2CMbPHCig==}
+  '@wandry/inertia-form@1.10.1':
+    resolution: {integrity: sha512-aXzikqhU2eCbY/YsACgetWA/Hf455zwx749km+7Tc/93kd7bn/rzB09O8mOp5aA0/s7Rw4bqaH9yzmG/4iu6sw==}
     peerDependencies:
       '@inertiajs/core': '>=1'
       '@inertiajs/react': '>=1'
@@ -5378,7 +5378,7 @@ snapshots:
   '@img/sharp-win32-x64@0.34.3':
     optional: true
 
-  '@inertiajs/core@2.2.13':
+  '@inertiajs/core@2.2.15':
     dependencies:
       '@types/lodash-es': 4.17.12
       axios: 1.13.1
@@ -5387,9 +5387,9 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@inertiajs/react@2.2.13(react@19.1.0)':
+  '@inertiajs/react@2.2.15(react@19.1.0)':
     dependencies:
-      '@inertiajs/core': 2.2.13
+      '@inertiajs/core': 2.2.15
       '@types/lodash-es': 4.17.12
       lodash-es: 4.17.21
       react: 19.1.0
@@ -6835,10 +6835,10 @@ snapshots:
       next: 15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
-  '@wandry/inertia-form@1.9.0(@inertiajs/core@2.2.13)(@inertiajs/react@2.2.13(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)':
+  '@wandry/inertia-form@1.10.1(@inertiajs/core@2.2.15)(@inertiajs/react@2.2.15(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)':
     dependencies:
-      '@inertiajs/core': 2.2.13
-      '@inertiajs/react': 2.2.13(react@19.1.0)
+      '@inertiajs/core': 2.2.15
+      '@inertiajs/react': 2.2.15(react@19.1.0)
       '@types/react': 19.1.2
       '@types/react-dom': 19.1.2(@types/react@19.1.2)
       clsx: 2.1.1

@@ -3,17 +3,9 @@ import { isMarkdownPreferred, rewritePath } from "fumadocs-core/negotiation";
 
 const { rewrite: rewriteLLM } = rewritePath("/docs/*path", "/llms.mdx/*path");
 
-const REGISRTRY_PATH = /^\/r(?:\/.*)?$/;
-
 export function middleware(request: NextRequest) {
-  console.log("request.url", request.url);
-  if (REGISRTRY_PATH.test(new URL(request.url).pathname)) {
-    console.log(
-      "Middleware triggered for registry path",
-      JSON.stringify(request)
-    );
-    // отправляем событие в аналитику или базу
-  }
+  // import {captureRegistryEvents} from '@wandry/analytics-sdk';
+  // captureRegistryEvents(request, token);
 
   if (isMarkdownPreferred(request)) {
     const result = rewriteLLM(request.nextUrl.pathname);

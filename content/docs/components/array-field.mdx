@@ -1,0 +1,57 @@
+---
+title: ArrayField
+description: A component for Wandry UI
+---
+
+## Installation
+
+<CodeBlockCommand
+  __pnpm__="pnpm dlx shadcn@latest add @wandry-ui/array-field"
+  __npm__="npx shadcn@latest add @wandry-ui/array-field"
+  __bun__="bunx --bun shadcn@latest add @wandry-ui/array-field"
+  __yarn__="yarn dlx shadcn@latest add @wandry-ui/array-field"
+/>
+
+## Example
+
+<ComponentPreview
+  src="/registry/examples/array-field-demo.tsx"
+  name="array-field-demo"
+  description="A component for Wandry UI"
+  align="center"
+/>
+
+## Usage
+
+```tsx
+import ArrayField from "@/components/array-field";
+```
+
+```tsx
+<ArrayField
+  name="emails"
+  label="Email Addresses"
+  description="Add up to 5 email addresses where we can contact you."
+>
+  {(name, { remove }) => (
+    <TextField
+      key={`${name}.address`}
+      name={`${name}.address`}
+      placeholder="Enter email"
+      addonRight={
+        <Button type="button" variant="ghost" onClick={remove}>
+          <X />
+        </Button>
+      }
+    />
+  )}
+</ArrayField>
+```
+
+## Props
+
+<AutoTypeTable
+  path="registry/wandry-ui/array-field.tsx"
+  name="ArrayFieldProps"
+/>
+```

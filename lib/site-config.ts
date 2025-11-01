@@ -151,3 +151,4 @@ export default function LoginForm() {
 `;
 
 export const githubLink = "https://github.com/WandryDev/wandry-ui";
+export const twitterLink = "https://x.com/kapish_dima";
