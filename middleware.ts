@@ -5,17 +5,10 @@ import { captureRegistryEvent } from "@wandry/analytics-sdk";
 
 const { rewrite: rewriteLLM } = rewritePath("/docs/*path", "/llms.mdx/*path");
 
-import { captureRegistryEvent } from "@wandry/analytics-sdk";
-
 export function middleware(request: NextRequest) {
   captureRegistryEvent(
     request,
-    "7|VlVieCuoRoSmPVlll8XeT2A1KOt044WzGu21IHia8ac6af5a"
-  );
-
-  captureRegistryEvent(
-    request,
-    "8|OOL1rO2LRehDNYDSN1WbegXAX9WlxcbPymsug1Qkebadd119"
+    process.env.NEXT_PUBLIC_WANDRY_ANALYTICS_TOKEN ?? ""
   );
 
   if (isMarkdownPreferred(request)) {

@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { analyticsLink } from "@/lib/site-config";
+
 import { HeroAnimation } from "@/components/hero-animation";
 import { HeroSection } from "@/components/hero-section";
 
@@ -15,7 +17,7 @@ export default function Home() {
           <AnimatedBadge
             text="Introducing Wandry Analytics"
             color="#22d3ee"
-            href="https://analytics.wandry.com.ua"
+            href={analyticsLink}
           />
         </div>
         <HeroSection />
