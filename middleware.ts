@@ -5,9 +5,13 @@ import { captureRegistryEvent } from "@wandry/analytics-sdk";
 
 const { rewrite: rewriteLLM } = rewritePath("/docs/*path", "/llms.mdx/*path");
 
+import { captureRegistryEvent } from "@wandry/analytics-sdk";
+
 export function middleware(request: NextRequest) {
-  // import {captureRegistryEvents} from '@wandry/analytics-sdk';
-  // captureRegistryEvents(request, token);
+  captureRegistryEvent(
+    request,
+    "7|VlVieCuoRoSmPVlll8XeT2A1KOt044WzGu21IHia8ac6af5a"
+  );
 
   captureRegistryEvent(
     request,
