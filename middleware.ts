@@ -8,7 +8,7 @@ import { captureRegistryEvent } from "@wandry/analytics-sdk";
 export function middleware(request: NextRequest) {
   captureRegistryEvent(
     request,
-    "4|kBX6fLi9Jhz75khaFkKzGbhgLAsRbSUgGUEJgspP3133b978"
+    "7|VlVieCuoRoSmPVlll8XeT2A1KOt044WzGu21IHia8ac6af5a"
   );
 
   if (isMarkdownPreferred(request)) {
