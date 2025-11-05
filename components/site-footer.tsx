@@ -33,8 +33,19 @@ export function SiteFooter() {
             >
               GitHub
             </a>
-            .
           </div>
+          <a
+            href="https://www.producthunt.com/products/wandry-ui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-wandry&#0045;ui"
+            target="_blank"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1034050&theme=dark&t=1762374344777"
+              alt="Wandry&#0032;UI - Fully&#0045;controlled&#0032;React&#0032;Inertia&#0032;form&#0032;components | Product Hunt"
+              style={{ width: "250px", height: "54px" }}
+              width="250"
+              height="54"
+            />
+          </a>
         </div>
       </div>
     </footer>
