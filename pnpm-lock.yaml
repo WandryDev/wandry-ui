@@ -73,7 +73,7 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(next@15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@wandry/analytics-sdk':
-        specifier: ^1.5.0
+        specifier: ^1.4.0
         version: 1.5.0
       '@wandry/inertia-form':
         specifier: ^1.10.1
