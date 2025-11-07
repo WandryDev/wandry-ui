@@ -34,7 +34,7 @@
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "@wandry/analytics-sdk": "^1.5.2",
+    "@wandry/analytics-sdk": "^1.6.0",
     "@wandry/inertia-form": "^1.10.1",
     "button": "^1.1.1",
     "class-variance-authority": "^0.7.1",
