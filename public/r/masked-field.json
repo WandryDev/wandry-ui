@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "masked-field",
+  "type": "registry:component",
+  "title": "MaskedField",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "https://diceui.com/r/mask-input",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/masked-field.tsx",
+      "content": "\"use client\";\nimport * as React from \"react\";\nimport { useField } from \"@wandry/inertia-form\";\n\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport { MaskInput, MaskInputProps } from \"@/components/ui/mask-input\";\n\nexport type MaskedFieldProps = {\n  name: string;\n  label?: string;\n  description?: string;\n  placeholder?: string;\n} & Omit<MaskInputProps, \"name\" | \"label\" | \"description\" | \"placeholder\">;\n\nconst MaskedField: React.FC<MaskedFieldProps> = ({\n  name,\n  label,\n  description,\n  placeholder,\n  ...props\n}) => {\n  const field = useField(name);\n\n  return (\n    <Field>\n      <FieldLabel>{label}</FieldLabel>\n      <MaskInput\n        mask={props.mask}\n        placeholder={placeholder}\n        value={field.value}\n        onValueChange={field.onChange}\n      />\n      <FieldDescription>{description}</FieldDescription>\n      <FieldError>{field.error}</FieldError>\n    </Field>\n  );\n};\n\nexport default MaskedField;\n",
+      "type": "registry:component"
+    }
+  ]
+}

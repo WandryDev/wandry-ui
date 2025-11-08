@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "signup-02",
-  "type": "registry:component",
+  "type": "registry:block",
   "title": "Wandry UI Component",
   "description": "A component for Wandry UI",
   "dependencies": [

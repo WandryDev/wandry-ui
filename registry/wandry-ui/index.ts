@@ -17,3 +17,4 @@ export { default as DropzoneField } from "./dropzone-field";
 export { default as SubmitButton } from "./submit-button";
 export { default as ArrayField } from "./array-field";
 export { default as MaskedField } from "./masked-field";
+export { default as ColorField } from "./colorpicker-field";

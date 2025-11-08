@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "array-field",
+  "type": "registry:component",
+  "title": "ArrayField",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "field",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/array-field.tsx",
+      "content": "\"use client\";\nimport * as React from \"react\";\nimport { useArrayField } from \"@wandry/inertia-form\";\n\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport { Button } from \"@/components/ui/button\";\n\nexport type ArrayFieldItemProps = {\n  append: (defaultValue?: any) => void;\n  remove: () => void;\n  move: (from: number, to: number) => void;\n  canAppend: () => boolean;\n  canRemove: (index: number) => boolean;\n  canMove: (from: number, to: number) => boolean;\n};\n\nexport type ArrayFieldProps = {\n  name: string;\n  children: (name: string, props: ArrayFieldItemProps) => React.ReactNode;\n  addButton?: React.ReactNode;\n  label?: string;\n  description?: string;\n};\n\nconst ArrayField: React.FC<ArrayFieldProps> = ({\n  name,\n  label,\n  description,\n  addButton,\n  children,\n}) => {\n  const { value, error, ...field } = useArrayField(name, { defaultValue: [] });\n\n  return (\n    <Field>\n      {label && <FieldLabel>{label}</FieldLabel>}\n      {description && <FieldDescription>{description}</FieldDescription>}\n      {value.map((_, index) =>\n        children(`${name}[${index}]`, {\n          ...field,\n          remove: () => field.remove(index),\n          canRemove: () => field.canRemove(index),\n          move: (to: number) => field.move(index, to),\n        })\n      )}\n      {addButton ?? (\n        <Button type=\"button\" onClick={() => field.append()}>\n          Add\n        </Button>\n      )}\n      {error && <FieldError>{error}</FieldError>}\n    </Field>\n  );\n};\n\nexport default ArrayField;\n",
+      "type": "registry:component"
+    }
+  ]
+}

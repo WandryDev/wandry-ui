@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "submit-button",
+  "type": "registry:component",
+  "title": "Submit Button",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "button",
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/submit-button.tsx",
+      "content": "\"use client\";\nimport * as React from \"react\";\nimport { useFormContext } from \"@wandry/inertia-form\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Spinner } from \"@/components/ui/spinner\";\n\nexport type SubmitButtonProps = React.PropsWithChildren<\n  React.ComponentProps<typeof Button> & {\n    disabled?: boolean;\n  }\n>;\n\nconst SubmitButton: React.FC<SubmitButtonProps> = (props) => {\n  const { form } = useFormContext();\n\n  return (\n    <Button\n      type=\"submit\"\n      disabled={form.processing || props.disabled}\n      {...props}\n    >\n      {form.processing && <Spinner />}\n      {props.children}\n    </Button>\n  );\n};\n\nexport default SubmitButton;\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -371,7 +371,7 @@
     {
       "name": "signup-02",
       "title": "Wandry UI Component",
-      "type": "registry:component",
+      "type": "registry:block",
       "description": "A component for Wandry UI",
       "dependencies": ["@wandry/inertia-form"],
       "registryDependencies": [
@@ -456,6 +456,124 @@
           "path": "registry/wandry-ui/blocks/signup-05/components/signup-form.tsx",
           "type": "registry:block",
           "target": "resources/js/components/signup-05/signup-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "settings-01",
+      "title": "Settings 01",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": [
+        "button",
+        "text-field",
+        "select-field",
+        "textarea-field",
+        "radio-field",
+        "submit-button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/settings-01/page.tsx",
+          "type": "registry:block",
+          "target": "resources/js/Pages/settings-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "settings-02",
+      "title": "Settings 02",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": [
+        "button",
+        "text-field",
+        "select-field",
+        "checkbox-field",
+        "submit-button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/settings-02/page.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "submit-button",
+      "title": "Submit Button",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": ["button", "spinner"],
+      "files": [
+        {
+          "path": "registry/wandry-ui/submit-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "settings-03",
+      "title": "Settings 03",
+      "type": "registry:block",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": [
+        "button",
+        "text-field",
+        "select-field",
+        "choisebox-field",
+        "submit-button"
+      ],
+      "files": [
+        {
+          "path": "registry/wandry-ui/blocks/settings-03/page.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "array-field",
+      "title": "ArrayField",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": ["field", "button"],
+      "files": [
+        {
+          "path": "registry/wandry-ui/array-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "masked-field",
+      "title": "MaskedField",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": ["https://diceui.com/r/mask-input", "field"],
+      "files": [
+        {
+          "path": "registry/wandry-ui/masked-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "colorpicker-field",
+      "title": "ColorPickerField",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form", "react-aria-components"],
+      "registryDependencies": ["field", "button", "input-group", "popover"],
+      "files": [
+        {
+          "path": "registry/wandry-ui/colorpicker-field.tsx",
+          "type": "registry:component"
         }
       ]
     }
