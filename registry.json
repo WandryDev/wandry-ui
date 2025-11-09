@@ -576,6 +576,20 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "tags-field",
+      "title": "TagsField",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": ["field", "button", "input-group"],
+      "files": [
+        {
+          "path": "registry/wandry-ui/tags-field.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
