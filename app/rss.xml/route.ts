@@ -8,6 +8,7 @@ export async function GET(request: Request) {
     github: {
       owner: "WandryDev",
       repo: "wandry-ui",
+      token: process.env.GITHUB_TOKEN,
     },
   });
   return new Response(rssXml, {
