@@ -73,8 +73,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(next@15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@wandry/analytics-sdk':
-        specifier: ^1.8.0
-        version: 1.8.0
+        specifier: ^1.8.1
+        version: 1.8.1
       '@wandry/inertia-form':
         specifier: ^1.10.1
         version: 1.10.1(@inertiajs/core@2.2.15)(@inertiajs/react@2.2.15(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)
@@ -2743,8 +2743,8 @@ packages:
       vue-router:
         optional: true
 
-  '@wandry/analytics-sdk@1.8.0':
-    resolution: {integrity: sha512-bxMS/JWst/BkhDr8LVay4UkTIe+w+jIKHGKUT4OZ+57dYWq1a/r1T71YJolN1f+afZM5u/D8rvEfGl7jBzxLvQ==}
+  '@wandry/analytics-sdk@1.8.1':
+    resolution: {integrity: sha512-gCseDLmXuYVJXYR8ftpxnFGJBy4I/WadGqElgsLjh6s4QpuxwlPqWbm7dObrZyV3niR9HR2FxLYBeNM0A8w/fw==}
 
   '@wandry/inertia-form@1.10.1':
     resolution: {integrity: sha512-aXzikqhU2eCbY/YsACgetWA/Hf455zwx749km+7Tc/93kd7bn/rzB09O8mOp5aA0/s7Rw4bqaH9yzmG/4iu6sw==}
@@ -8554,7 +8554,7 @@ snapshots:
       next: 15.5.2(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
-  '@wandry/analytics-sdk@1.8.0': {}
+  '@wandry/analytics-sdk@1.8.1': {}
 
   '@wandry/inertia-form@1.10.1(@inertiajs/core@2.2.15)(@inertiajs/react@2.2.15(react@19.1.0))(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(clsx@2.1.1)(react@19.1.0)':
     dependencies:
