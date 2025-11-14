@@ -202,6 +202,8 @@ Uses the component file's last modified date. Requires file system access.
 
 **Note:** Component must have `files[0].path` property with correct file path.
 
+**⚠️ Important:** This strategy doesn't work on Vercel deployments because Vercel doesn't have access to files that are not in the bundle. For Vercel and similar serverless platforms, use `githubLastEdit` or `dateNow` strategies instead.
+
 ### 3. `githubLastEdit`
 
 Fetches last commit date from GitHub API. Perfect for open-source projects.
