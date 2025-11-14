@@ -26,6 +26,10 @@ const TOP_LEVEL_SECTIONS = [
     name: "Wandry Inertia Form",
     href: "/docs/wandry-inertia-form",
   },
+  {
+    name: "RSS Feed Generator",
+    href: "/docs/rss-feed-generator",
+  },
 ];
 
 export function DocsSidebar({

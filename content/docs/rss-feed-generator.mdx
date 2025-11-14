@@ -1,0 +1,453 @@
+---
+title: RSS Feed Generator for Shadcn Registry
+description: A simple way to create forms for Inertia applications.
+---
+
+## Purpose
+
+This module provides developers with the ability to generate RSS feeds on-the-fly for their shadcn registries. RSS feeds allow users and applications to track component updates in your registry, receive notifications about new components and changes.
+
+Since most shadcn registries are built on Next.js, the module is designed with Next.js integration in mind and supports modern development patterns.
+
+## Key Features
+
+- **Automatic RSS feed generation** from your registry.json
+- **Flexible pubDate strategies** configuration:
+  - `dateNow` - current date and time
+  - `fileMtime` - file last modified date
+  - `githubLastEdit` - last commit date from GitHub
+  - Custom function for date calculation
+- **Simple integration** with Next.js via middleware or API routes
+- **Auto-detect baseUrl** from request
+- **Customizable** RSS feed metadata (title, description, link)
+
+## Installation
+
+```bash
+npm install @wandry/analytics-sdk
+```
+
+## Usage Methods
+
+### 1. Using Next.js Middleware
+
+This method allows you to intercept requests to `/rss.xml` and generate RSS feed on-the-fly without creating a separate route.
+
+#### Example: `middleware.ts`
+
+```typescript
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { generateRegistryRssFeed } from "@wandry/analytics-sdk/rss";
+
+export async function middleware(request: NextRequest) {
+  // Intercept requests to rss.xml
+  if (request.nextUrl.pathname === "/rss.xml") {
+    const rssXml = await generateRegistryRssFeed(request, {
+      rss: {
+        title: "My Shadcn Components",
+        description: "Latest components from my shadcn registry",
+        endpoint: "/rss.xml",
+        pubDateStatagy: "dateNow",
+      },
+      registry: {
+        path: "r/registry.json",
+      },
+    });
+
+    if (!rssXml) {
+      return new NextResponse("RSS feed not available", { status: 404 });
+    }
+
+    return new NextResponse(rssXml, {
+      headers: {
+        "Content-Type": "application/rss+xml; charset=utf-8",
+        "Cache-Control": "public, max-age=3600",
+      },
+    });
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: "/rss.xml",
+};
+```
+
+### 2. Using API Route
+
+Create a separate route for generating RSS feed. This is a more flexible approach that allows you to use Next.js server functions.
+
+#### Example: App Router (`app/rss.xml/route.ts`)
+
+```typescript
+import { generateRegistryRssFeed } from "@wandry/analytics-sdk/rss";
+import { NextRequest } from "next/server";
+
+export async function GET(request: NextRequest) {
+  const rssXml = await generateRegistryRssFeed(request, {
+    rss: {
+      title: "My Shadcn Registry",
+      description: "Beautiful and reusable components for your projects",
+      endpoint: "/rss.xml",
+      pubDateStatagy: "dateNow",
+    },
+    registry: {
+      path: "r/registry.json",
+    },
+  });
+
+  if (!rssXml) {
+    return new Response("RSS feed not available", { status: 404 });
+  }
+
+  return new Response(rssXml, {
+    headers: {
+      "Content-Type": "application/rss+xml; charset=utf-8",
+      "Cache-Control": "public, max-age=3600, s-maxage=3600",
+    },
+  });
+}
+```
+
+#### Example: Pages Router (`pages/api/rss.xml.ts`)
+
+```typescript
+import type { NextApiRequest, NextApiResponse } from "next";
+import { generateRegistryRssFeed } from "@wandry/analytics-sdk/rss";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const rssXml = await generateRegistryRssFeed(req as any, {
+    rss: {
+      title: "My Component Library",
+      description: "Latest components and updates",
+      endpoint: "/api/rss.xml",
+      pubDateStatagy: "dateNow",
+    },
+  });
+
+  if (!rssXml) {
+    res.status(404).send("RSS feed not available");
+    return;
+  }
+
+  res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+  res.setHeader("Cache-Control", "public, max-age=3600");
+  res.status(200).send(rssXml);
+}
+```
+
+## Configuration
+
+### Main Parameters
+
+```typescript
+{
+  // RSS feed configuration
+  rss?: {
+    title?: string;              // Your feed title
+    description?: string;         // Feed description
+    link?: string;               // Your website URL (defaults to baseUrl)
+    endpoint?: string;           // Path to RSS feed (defaults to '/rss.xml')
+    pubDateStatagy?: PubDateStatagy; // Publication date strategy
+  },
+
+  // Base URL (automatically determined from request)
+  baseUrl?: string;
+
+  // Registry configuration
+  registry?: {
+    path?: string;  // Path to registry.json (defaults to 'r/registry.json')
+  },
+
+  // GitHub configuration (for 'githubLastEdit' strategy)
+  github?: {
+    repo: string;      // Repository name
+    owner: string;     // Repository owner
+    token?: string;    // GitHub access token (optional)
+    sha?: string;      // Branch or tag (optional)
+  }
+}
+```
+
+## PubDate Strategies
+
+### 1. `dateNow` (default)
+
+Uses current date and time. Suitable for testing and simple cases.
+
+```typescript
+{
+  rss: {
+    pubDateStatagy: "dateNow";
+  }
+}
+```
+
+### 2. `fileMtime`
+
+Uses the component file's last modified date. Requires file system access.
+
+```typescript
+{
+  rss: {
+    pubDateStatagy: "fileMtime";
+  }
+}
+```
+
+**Note:** Component must have `files[0].path` property with correct file path.
+
+### 3. `githubLastEdit`
+
+Fetches last commit date from GitHub API. Perfect for open-source projects.
+
+```typescript
+{
+  rss: {
+    pubDateStatagy: 'githubLastEdit'
+  },
+  github: {
+    owner: 'your-username',
+    repo: 'your-repo',
+    token: process.env.GITHUB_TOKEN // Optional, increases rate limit
+  }
+}
+```
+
+**Advantages:**
+
+- Accurate last modified date
+- Works for public repositories
+- Private repository support with token
+
+### 4. Custom Function
+
+Create your own logic for determining publication date:
+
+```typescript
+{
+  rss: {
+    pubDateStatagy: async (item) => {
+      // item contains component data from registry
+      // For example, you can use createdAt from database
+      const component = await db.components.findOne({ name: item.name });
+      return component.updatedAt || new Date();
+    };
+  }
+}
+```
+
+## Usage Examples
+
+### Minimal Configuration
+
+```typescript
+const rssXml = await generateRegistryRssFeed(request);
+```
+
+Uses default values:
+
+- title: "Shadcn Registry"
+- endpoint: "/rss.xml"
+- registry path: "r/registry.json"
+- pubDateStatagy: "dateNow"
+
+### Full Configuration with GitHub
+
+```typescript
+const rssXml = await generateRegistryRssFeed(request, {
+  baseUrl: "https://my-registry.com",
+  rss: {
+    title: "Awesome UI Components",
+    description: "Professional React components built with Tailwind CSS",
+    link: "https://my-registry.com",
+    endpoint: "/feed/rss.xml",
+    pubDateStatagy: "githubLastEdit",
+  },
+  registry: {
+    path: "api/registry.json",
+  },
+  github: {
+    owner: "mycompany",
+    repo: "ui-components",
+    token: process.env.GITHUB_TOKEN,
+    sha: "main",
+  },
+});
+```
+
+### Using with Caching
+
+```typescript
+// App Router with ISR (Incremental Static Regeneration)
+export const revalidate = 3600; // Revalidate every hour
+
+export async function GET(request: NextRequest) {
+  const rssXml = await generateRegistryRssFeed(request);
+
+  return new Response(rssXml, {
+    headers: {
+      "Content-Type": "application/rss+xml; charset=utf-8",
+      "Cache-Control":
+        "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400",
+    },
+  });
+}
+```
+
+## Registry.json Format
+
+The module expects the following registry structure:
+
+```json
+{
+  "items": [
+    {
+      "name": "button",
+      "title": "Button Component",
+      "description": "A beautiful button component with multiple variants",
+      "files": [
+        {
+          "path": "components/ui/button.tsx"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Required fields for each component:
+
+- `name` - unique component name
+- `title` - display title
+- `description` - component description
+
+For `fileMtime` strategy requires:
+
+- `files[0].path` - path to component file
+
+## Output
+
+The function generates standard RSS 2.0 feed:
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Shadcn Registry</title>
+    <link>https://my-site.com</link>
+    <description>Latest components from my registry</description>
+    <atom:link href="https://my-site.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Button Component</title>
+      <link>https://my-site.com/button</link>
+      <guid>https://my-site.com/button</guid>
+      <description>A beautiful button component</description>
+      <pubDate>Thu, 14 Nov 2024 20:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
+```
+
+## Error Handling
+
+The function returns `null` in the following cases:
+
+- Registry not found or unavailable
+- Registry is empty (no components)
+- Error occurred during generation
+
+It's recommended to handle null results:
+
+```typescript
+const rssXml = await generateRegistryRssFeed(request, options);
+
+if (!rssXml) {
+  return new Response("RSS feed not available", {
+    status: 404,
+    headers: { "Content-Type": "text/plain" },
+  });
+}
+```
+
+## Best Practices
+
+### 1. Caching
+
+RSS feed generation can be resource-intensive (especially with GitHub API). Use caching:
+
+```typescript
+// CDN caching
+headers: {
+  'Cache-Control': 'public, max-age=3600, s-maxage=7200, stale-while-revalidate=86400'
+}
+```
+
+### 2. GitHub Rate Limiting
+
+GitHub API has request limits. Use a token to increase the limit:
+
+```typescript
+github: {
+  token: process.env.GITHUB_TOKEN, // 5000 requests/hour instead of 60
+  owner: 'myorg',
+  repo: 'myrepo'
+}
+```
+
+### 3. Environment Variables
+
+Store sensitive data in environment variables:
+
+```typescript
+// .env.local
+GITHUB_TOKEN=your_token_here
+REGISTRY_BASE_URL=https://your-site.com
+```
+
+```typescript
+// In code
+github: {
+  token: process.env.GITHUB_TOKEN,
+  owner: 'myorg',
+  repo: 'myrepo'
+}
+```
+
+### 4. Monitoring
+
+Log errors for debugging:
+
+```typescript
+const rssXml = await generateRegistryRssFeed(request, options);
+
+if (!rssXml) {
+  console.error("Failed to generate RSS feed");
+  // Send to monitoring system (Sentry, LogRocket, etc.)
+}
+```
+
+## Compatibility
+
+- **Next.js**: 13+ (App Router and Pages Router)
+- **Node.js**: 18+
+- **TypeScript**: 5+
+
+## Useful Links
+
+- [RSS 2.0 Specification](https://www.rssboard.org/rss-specification)
+- [Next.js Middleware](https://nextjs.org/docs/app/building-your-application/routing/middleware)
+- [Next.js API Routes](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)
+- [GitHub API Documentation](https://docs.github.com/en/rest)
+
+## Support
+
+If you have questions or issues:
+
+- Create an Issue in the [GitHub repository](https://github.com/WandryDev/wandry-analytics-sdk)
+- Check existing Issues for solutions
