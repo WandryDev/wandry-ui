@@ -1,9 +1,10 @@
 import { generateRegistryRssFeed } from "@wandry/analytics-sdk";
 
-export async function GET(request: Request) {
-  const rssXml = await generateRegistryRssFeed(request, {
+export async function GET() {
+  const rssXml = await generateRegistryRssFeed({
+    baseUrl: "https://ui.wandry.com.ua",
     rss: {
-      pubDateStatagy: "githubLastEdit",
+      pubDateStrategy: "githubLastEdit",
     },
     github: {
       owner: "WandryDev",
