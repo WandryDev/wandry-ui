@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tags-field",
+  "type": "registry:component",
+  "title": "TagsField",
+  "description": "A component for Wandry UI",
+  "dependencies": [
+    "@wandry/inertia-form"
+  ],
+  "registryDependencies": [
+    "field",
+    "button",
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "registry/wandry-ui/tags-field.tsx",
+      "content": "\"use client\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/components/ui/field\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupInput,\n} from \"@/components/ui/input-group\";\nimport { useField } from \"@wandry/inertia-form\";\nimport { XCircle, XIcon } from \"lucide-react\";\nimport * as React from \"react\";\n\nexport type TagsFieldProps = {\n  name: string;\n  label?: string;\n  placeholder?: string;\n  description?: string;\n};\n\nconst TagsField: React.FC<TagsFieldProps> = ({\n  name,\n  label,\n  description,\n  placeholder,\n}) => {\n  const [value, setValue] = React.useState(\"\");\n\n  const field = useField<string[]>(name, { defaultValue: [] });\n\n  const addTag = React.useCallback(\n    (event: React.KeyboardEvent<HTMLInputElement>) => {\n      if (event.key !== \"Enter\") return;\n      event.stopPropagation();\n      event.preventDefault();\n\n      if (value.trim() !== \"\" && !field.value.includes(value.trim())) {\n        field.onChange([...field.value, value.trim()]);\n        setValue(\"\");\n      }\n    },\n    [value, field]\n  );\n\n  const removeTag = (tag: string, i: number) => {\n    field.onChange(field.value.filter((t, index) => t !== tag && i !== index));\n  };\n\n  const createAllTags = () => {\n    field.onChange([]);\n    setValue(\"\");\n  };\n\n  const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>\n    setValue(event.target.value);\n\n  return (\n    <Field className=\"max-w-\">\n      <FieldLabel>{label}</FieldLabel>\n      <FieldDescription>{description}</FieldDescription>\n      <InputGroup>\n        <InputGroupInput\n          value={value}\n          onChange={onChange}\n          onKeyDown={addTag}\n          placeholder={placeholder}\n        />\n        {field.value?.length > 0 && (\n          <InputGroupAddon align=\"inline-end\">\n            <InputGroupButton onClick={createAllTags} type=\"button\">\n              <XCircle />\n            </InputGroupButton>\n          </InputGroupAddon>\n        )}\n      </InputGroup>\n      <div className=\"flex flex-wrap gap-2 mt-2\">\n        {field.value.map((tag, index) => (\n          <Button\n            key={index}\n            type=\"button\"\n            size=\"sm\"\n            variant=\"outline\"\n            onClick={() => removeTag(tag, index)}\n          >\n            {tag} <XIcon />\n          </Button>\n        ))}\n      </div>\n      <FieldError>{field.error}</FieldError>\n    </Field>\n  );\n};\n\nexport default TagsField;\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -243,11 +243,6 @@
           "path": "registry/wandry-ui/blocks/login-01/page.tsx",
           "type": "registry:page",
           "target": "resources/js/Pages/login-01.tsx"
-        },
-        {
-          "path": "registry/wandry-ui/blocks/login-01/components/login-form.tsx",
-          "type": "registry:component",
-          "target": "resources/js/components/login-01/login-form.tsx"
         }
       ]
     },

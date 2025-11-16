@@ -243,11 +243,6 @@
           "path": "registry/wandry-ui/blocks/login-01/page.tsx",
           "type": "registry:page",
           "target": "resources/js/Pages/login-01.tsx"
-        },
-        {
-          "path": "registry/wandry-ui/blocks/login-01/components/login-form.tsx",
-          "type": "registry:component",
-          "target": "resources/js/components/login-01/login-form.tsx"
         }
       ]
     },
@@ -573,6 +568,20 @@
       "files": [
         {
           "path": "registry/wandry-ui/colorpicker-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tags-field",
+      "title": "TagsField",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": ["@wandry/inertia-form"],
+      "registryDependencies": ["field", "button", "input-group"],
+      "files": [
+        {
+          "path": "registry/wandry-ui/tags-field.tsx",
           "type": "registry:component"
         }
       ]
