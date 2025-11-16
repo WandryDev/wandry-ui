@@ -47,6 +47,7 @@ export async function middleware(request: NextRequest) {
 
     const rssXml = await generateRegistryRssFeed({
       baseUrl,
+      componentsPath: '/docs/components'
       rss: {
         title: "My Shadcn Components",
         description: "Latest components from my shadcn registry",
@@ -93,6 +94,7 @@ export async function GET(request: NextRequest) {
 
   const rssXml = await generateRegistryRssFeed({
     baseUrl,
+    componentsPath: '/docs/components'
     rss: {
       title: "My Shadcn Registry",
       description: "Beautiful and reusable components for your projects",
@@ -133,6 +135,7 @@ export default async function handler(
 
   const rssXml = await generateRegistryRssFeed({
     baseUrl,
+    componentsPath: '/docs/components'
     rss: {
       title: "My Component Library",
       description: "Latest components and updates",
@@ -278,6 +281,7 @@ const baseUrl = new URL(request.url).origin;
 
 const rssXml = await generateRegistryRssFeed({
   baseUrl,
+  componentsPath: '/docs/components'
   rss: {
     title: "Awesome UI Components",
     description: "Professional React components built with Tailwind CSS",
