@@ -12,6 +12,7 @@ Since most shadcn registries are built on Next.js, the module is designed with N
 ## Key Features
 
 - **Automatic RSS feed generation** from your registry.json
+- **Automatic type detection** for registry items (components vs blocks) with correct URL paths
 - **Flexible pubDate strategies** configuration:
   - `dateNow` - current date and time
   - `fileMtime` - file last modified date
@@ -47,7 +48,6 @@ export async function middleware(request: NextRequest) {
 
     const rssXml = await generateRegistryRssFeed({
       baseUrl,
-      componentsPath: '/docs/components'
       rss: {
         title: "My Shadcn Components",
         description: "Latest components from my shadcn registry",
@@ -94,7 +94,8 @@ export async function GET(request: NextRequest) {
 
   const rssXml = await generateRegistryRssFeed({
     baseUrl,
-    componentsPath: '/docs/components'
+    componentsUrl: "docs/components", // Optional: customize component path
+    blocksUrl: "docs/blocks", // Optional: customize block path
     rss: {
       title: "My Shadcn Registry",
       description: "Beautiful and reusable components for your projects",
@@ -135,7 +136,8 @@ export default async function handler(
 
   const rssXml = await generateRegistryRssFeed({
     baseUrl,
-    componentsPath: '/docs/components'
+    componentsUrl: "docs/components", // Optional: customize component path
+    blocksUrl: "docs/blocks", // Optional: customize block path
     rss: {
       title: "My Component Library",
       description: "Latest components and updates",
@@ -164,13 +166,19 @@ export default async function handler(
   // Base URL of your site (required)
   baseUrl: string;
 
+  // URL path for components (optional, defaults to 'components')
+  componentsUrl?: string;
+
+  // URL path for blocks (optional, defaults to 'blocks')
+  blocksUrl?: string;
+
   // RSS feed configuration
   rss?: {
     title?: string;              // Your feed title
     description?: string;         // Feed description
     link?: string;               // Your website URL (defaults to baseUrl)
     endpoint?: string;           // Path to RSS feed (defaults to '/rss.xml')
-    pubDateStrategy?: PubDateStatagy; // Publication date strategy
+    pubDateStrategy?: PubDateStrategy; // Publication date strategy
   },
 
   // Registry configuration
@@ -187,6 +195,77 @@ export default async function handler(
   }
 }
 ```
+
+## Automatic Type Detection
+
+The RSS generator automatically detects the type of each registry item (component or block) and generates the appropriate URL path. This ensures that links in the RSS feed point to the correct pages on your site.
+
+### How Detection Works
+
+The type detection checks the following (in order):
+
+1. **Registry item type field**: Looks for `registry:ui`, `registry:component`, `registry:block`, or `registry:page` in the `type` property
+2. **File paths**: Analyzes file paths for `/ui/`, `/components/`, or `/blocks/` directories
+3. **File type property**: Checks the `type` property in individual files
+
+### Detected Types
+
+- **Component**: Items with types `registry:ui` or `registry:component`, or files in `/ui/` or `/components/` directories
+- **Block**: Items with types `registry:block` or `registry:page`, or files in `/blocks/` directory
+- **Unknown**: Items that don't match any criteria (uses empty path)
+
+### URL Generation
+
+Based on the detected type, URLs are generated as follows:
+
+- **Components**: `{baseUrl}/{componentsUrl}/{itemName}` (default: `https://site.com/components/button`)
+- **Blocks**: `{baseUrl}/{blocksUrl}/{itemName}` (default: `https://site.com/blocks/hero-section`)
+
+### Customizing URL Paths
+
+You can customize the URL paths for components and blocks:
+
+```typescript
+const rssXml = await generateRegistryRssFeed({
+  baseUrl,
+  componentsUrl: "docs/components", // Custom path for components
+  blocksUrl: "docs/blocks", // Custom path for blocks
+  rss: {
+    title: "My Registry",
+    pubDateStrategy: "dateNow",
+  },
+});
+```
+
+This will generate URLs like:
+
+- Components: `https://site.com/docs/components/button`
+- Blocks: `https://site.com/docs/blocks/hero-section`
+
+### Example Registry Items
+
+```json
+{
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button component",
+      "files": [{ "path": "components/ui/button.tsx" }]
+    },
+    {
+      "name": "hero-section",
+      "type": "registry:block",
+      "title": "Hero Section",
+      "description": "A hero section block",
+      "files": [{ "path": "blocks/hero-section.tsx" }]
+    }
+  ]
+}
+```
+
+In this example, the button will automatically be detected as a component and the hero-section as a block, generating appropriate URLs.
 
 ## PubDate Strategies
 
@@ -281,7 +360,8 @@ const baseUrl = new URL(request.url).origin;
 
 const rssXml = await generateRegistryRssFeed({
   baseUrl,
-  componentsPath: '/docs/components'
+  componentsUrl: "docs/components", // Custom path for components
+  blocksUrl: "docs/blocks", // Custom path for blocks
   rss: {
     title: "Awesome UI Components",
     description: "Professional React components built with Tailwind CSS",
@@ -354,7 +434,7 @@ For `fileMtime` strategy requires:
 
 ## Output
 
-The function generates standard RSS 2.0 feed:
+The function generates standard RSS 2.0 feed with automatic URL detection based on item type:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -366,14 +446,23 @@ The function generates standard RSS 2.0 feed:
     <atom:link href="https://my-site.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Button Component</title>
-      <link>https://my-site.com/button</link>
-      <guid>https://my-site.com/button</guid>
+      <link>https://my-site.com/components/button</link>
+      <guid>https://my-site.com/components/button</guid>
       <description>A beautiful button component</description>
+      <pubDate>Thu, 14 Nov 2024 20:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hero Section</title>
+      <link>https://my-site.com/blocks/hero-section</link>
+      <guid>https://my-site.com/blocks/hero-section</guid>
+      <description>A stunning hero section block</description>
       <pubDate>Thu, 14 Nov 2024 20:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
 ```
+
+Note how the URLs automatically use `/components/` for components and `/blocks/` for blocks based on automatic type detection.
 
 ## Error Handling
 

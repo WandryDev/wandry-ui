@@ -1,11 +1,9 @@
-// import { generateRegistryRssFeed } from "@wandry/analytics-sdk";
-import { generateRegistryRssFeed } from "@/rss";
+import { generateRegistryRssFeed } from "@wandry/analytics-sdk";
+// import { generateRegistryRssFeed } from "@/rss";
 
 export async function GET() {
   const rssXml = await generateRegistryRssFeed({
     baseUrl: "https://ui.wandry.com.ua",
-    componentsUrl: "docs/components",
-    blocksUrl: "docs/blocks",
     rss: {
       pubDateStrategy: "githubLastEdit",
     },
