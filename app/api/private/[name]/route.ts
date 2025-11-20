@@ -5,7 +5,7 @@ import { capturePrivateRegistryEvent } from "@wandry/analytics-sdk";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { name: string } }
+  { params }: { params: Promise<{ name: string }> }
 ) {
   // Get token from Authorization header.
 
@@ -18,7 +18,7 @@ export async function GET(
   }
 
   // Return the component.
-  const component = await getRegistryItem(params.name.split(".")[0]);
+  const component = await getRegistryItem((await params)?.name.split(".")[0]);
 
   capturePrivateRegistryEvent(
     request,
