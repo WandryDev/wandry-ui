@@ -17,13 +17,13 @@ export async function GET(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Return the component.
-  const component = await getRegistryItem((await params)?.name.split(".")[0]);
-
   capturePrivateRegistryEvent(
     request,
     process.env.NEXT_PUBLIC_WANDRY_ANALYTICS_TOKEN ?? ""
   );
+
+  // Return the component.
+  const component = await getRegistryItem((await params)?.name.split(".")[0]);
 
   return NextResponse.json(component);
 }
