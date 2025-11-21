@@ -3,15 +3,15 @@ import { generateRegistryRssFeed } from "@wandry/analytics-sdk";
 
 export async function GET() {
   const rssXml = await generateRegistryRssFeed({
-    baseUrl: "https://chanhdai.com/",
+    baseUrl: "https://ui.wandry.com.ua/",
     rss: {
       pubDateStrategy: "githubLastEdit",
     },
-    // github: {
-    //   owner: "WandryDev",
-    //   repo: "wandry-ui",
-    //   token: process.env.GITHUB_TOKEN,
-    // },
+    github: {
+      owner: "WandryDev",
+      repo: "wandry-ui",
+      token: process.env.GITHUB_TOKEN,
+    },
   });
   return new Response(rssXml, {
     headers: {
