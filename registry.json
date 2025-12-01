@@ -768,6 +768,22 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "update-button",
+      "title": "UpdateButton",
+      "type": "registry:component",
+      "description": "A component for Wandry UI",
+      "dependencies": [
+        "@wandry/inertia-form"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/wandry-ui/update-button.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
