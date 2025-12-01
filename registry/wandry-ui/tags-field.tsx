@@ -52,6 +52,7 @@ const TagsField: React.FC<TagsFieldProps> = ({
   };
 
   const createAllTags = () => {
+    // Clear all tags
     field.onChange([]);
     setValue("");
   };
