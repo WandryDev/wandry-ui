@@ -19,3 +19,4 @@ export { default as ArrayField } from "./array-field";
 export { default as MaskedField } from "./masked-field";
 export { default as ColorField } from "./colorpicker-field";
 export { default as TagsField } from "./tags-field";
+export { default as WebhookComponent } from "./webhook-component";
